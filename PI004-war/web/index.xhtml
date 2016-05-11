@@ -8,10 +8,20 @@
     </h:head>
     <h:body>
         <h:form>
+            
+            
+            
+            <h:messages globalOnly="true" id="teste" for="teste" />
+            
             <p:menu>
                 <p:submenu label="Cliente">
                     <p:menuitem value="Cadastrar" action="cadastrarCliente"/>
                 </p:submenu>
+                
+                <p:submenu label="Mensagem">
+                    <p:menuitem value="Testar" action="#{testeMensagem.testar()}" update="teste"/>
+                </p:submenu>
+                
                 
                 <p:submenu label="Venda">
                     <p:menuitem value="Cadastrar" action="cadastrarVenda"/>
