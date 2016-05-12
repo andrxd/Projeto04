@@ -44,6 +44,12 @@ public class ClienteBean {
         return "index";
     }
 
+    public void listarTodosClientes(){
+        clienteEJB.buscarClientes();
+    }
+    
+    
+    
     public Cliente getCliente() {
         return cliente;
     }

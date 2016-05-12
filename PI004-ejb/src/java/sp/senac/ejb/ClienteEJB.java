@@ -5,9 +5,11 @@
  */
 package sp.senac.ejb;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import sp.senac.entidades.Cliente;
 
 /**
@@ -17,13 +19,18 @@ import sp.senac.entidades.Cliente;
 @Stateless
 public class ClienteEJB implements ClienteEJBLocal {
 
-    @PersistenceContext 
+    @PersistenceContext
     private EntityManager em;
-    
+
     @Override
     public void cadastrar(Cliente cliente) {
         em.persist(cliente);
     }
 
-    
+    @Override
+    public List<Cliente> buscarClientes() {
+        Query query = em.createQuery("select c from Cliente c");
+        return query.getResultList();
+    }
+
 }
