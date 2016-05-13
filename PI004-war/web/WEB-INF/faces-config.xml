@@ -20,6 +20,12 @@
             <from-outcome>cadastrarVenda</from-outcome>
             <to-view-id>/cadastrarVenda.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastroProduto</from-outcome>
+            <to-view-id>/cadastroProduto.xhtml</to-view-id>
+        </navigation-case>
+        
+        
     </navigation-rule>
     <!--<lifecycle>
     <phase-listener>

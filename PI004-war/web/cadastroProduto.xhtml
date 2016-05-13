@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+         xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="cadastrarCliente">
+             
+            <h:panelGrid columns="2">
+                
+                <h:outputLabel value="ID"/>
+                <p:inputText value="#{produtoBean.produto.id}" />
+                
+                <h:outputLabel value="Categoria Produto"/>
+                <p:inputText value="#{produtoBean.produto.categoriaProduto}" />
+                
+                <h:outputLabel value="Cod.Produto"/>
+                <p:inputText value="#{produtoBean.produto.codProduto}" />
+                
+                <h:outputLabel value="Descricao"/>
+                <p:inputText value="#{produtoBean.produto.descricaoProduto}" />
+                
+                <h:outputLabel value="Data Cadastro"/>
+                <p:inputText value="#{produtoBean.produto.dtCadastroProduto}" />
+                
+                <h:outputLabel value="Fabricante"/>
+                <p:inputText value="#{produtoBean.produto.fabricanteProduto}" />
+                
+                <h:outputLabel value="FxEtaria"/>
+                <p:inputText value="#{produtoBean.produto.fxEtariaProduto}" />
+                
+                <h:outputLabel value="Nome Produto"/>
+                <p:inputText value="#{produtoBean.produto.nomeProduto}" />
+                
+                <h:outputLabel value="Plataforma"/>
+                <p:inputText value="#{produtoBean.produto.plataformaProduto}" />
+                
+                <h:outputLabel value="QTD"/>
+                <p:inputText value="#{produtoBean.produto.qtdProduto}" />
+                
+                <h:outputLabel value="Valor"/>
+                <p:inputText value="#{produtoBean.produto.valorProduto}" />
+                
+                <h:commandButton action="#{produtoBean.cadastrar()}" value="Cadastrar"/>
+
+            </h:panelGrid>
+            
+        </h:form> 
+    </h:body>
+</html>
+

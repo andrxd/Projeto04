@@ -5,6 +5,7 @@
  */
 package sp.senac.ejb;
 
+import java.util.List;
 import javax.ejb.Local;
 import sp.senac.entidades.Produto;
 
@@ -15,4 +16,9 @@ import sp.senac.entidades.Produto;
 @Local
 public interface ProdutoEJBLocal {
     public void cadastrar(Produto produto);
+    
+    public List<Produto> buscarPorNomeProduto(String nome);
+    
+    public List<Produto> buscarTodosProdutos();
+    
 }

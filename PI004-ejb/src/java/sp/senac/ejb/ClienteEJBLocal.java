@@ -5,6 +5,7 @@
  */
 package sp.senac.ejb;
 
+import java.util.List;
 import javax.ejb.Local;
 import sp.senac.entidades.Cliente;
 
@@ -16,5 +17,5 @@ import sp.senac.entidades.Cliente;
 public interface ClienteEJBLocal {
     
     public void cadastrar(Cliente cliente);
-    
+    public List<Cliente> buscarClientes();
 }

@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,6 +19,9 @@ import javax.persistence.TemporalType;
  */
 @Entity // INFORMA QUE É UMA ENTIDADE 
 @Table(name = "Produto")
+@NamedQueries(
+        @NamedQuery(name = "produto.buscarPorNomeProduto",//NOME DA QUERY
+                query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto)"))
 public class Produto implements Serializable {
 
     @Id
@@ -55,6 +60,94 @@ public class Produto implements Serializable {
     //private List<ImagemProduto> img;
     public Produto() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public String getDescricaoProduto() {
+        return descricaoProduto;
+    }
+
+    public void setDescricaoProduto(String descricaoProduto) {
+        this.descricaoProduto = descricaoProduto;
+    }
+
+    public BigDecimal getValorProduto() {
+        return valorProduto;
+    }
+
+    public void setValorProduto(BigDecimal valorProduto) {
+        this.valorProduto = valorProduto;
+    }
+
+    public String getFabricanteProduto() {
+        return fabricanteProduto;
+    }
+
+    public void setFabricanteProduto(String fabricanteProduto) {
+        this.fabricanteProduto = fabricanteProduto;
+    }
+
+    public String getPlataformaProduto() {
+        return plataformaProduto;
+    }
+
+    public void setPlataformaProduto(String plataformaProduto) {
+        this.plataformaProduto = plataformaProduto;
+    }
+
+    public int getQtdProduto() {
+        return qtdProduto;
+    }
+
+    public void setQtdProduto(int qtdProduto) {
+        this.qtdProduto = qtdProduto;
+    }
+
+    public int getFxEtariaProduto() {
+        return fxEtariaProduto;
+    }
+
+    public void setFxEtariaProduto(int fxEtariaProduto) {
+        this.fxEtariaProduto = fxEtariaProduto;
+    }
+
+    public String getCategoriaProduto() {
+        return categoriaProduto;
+    }
+
+    public void setCategoriaProduto(String categoriaProduto) {
+        this.categoriaProduto = categoriaProduto;
+    }
+
+    public Date getDtCadastroProduto() {
+        return dtCadastroProduto;
+    }
+
+    public void setDtCadastroProduto(Date dtCadastroProduto) {
+        this.dtCadastroProduto = dtCadastroProduto;
     }
 
 }

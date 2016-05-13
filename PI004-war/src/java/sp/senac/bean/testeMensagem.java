@@ -1,26 +1,30 @@
 /*
+
+
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sp.senac.bean;
+//package sp.senac.bean;
 
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+//import javax.inject.Named;
+//import javax.enterprise.context.Dependent;
+//import javax.faces.application.FacesMessage;
+//import javax.faces.context.FacesContext;
 
 /**
  *
  * @author Andre
  */
-
+/*
 @Dependent
 public class testeMensagem {
 
     /**
      * Creates a new instance of testeMensagem
      */
+/*
     public testeMensagem() {
     }
 
@@ -34,3 +38,4 @@ public class testeMensagem {
     }
 
 }
+*/

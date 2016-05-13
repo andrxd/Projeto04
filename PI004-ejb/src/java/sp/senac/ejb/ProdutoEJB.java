@@ -5,9 +5,11 @@
  */
 package sp.senac.ejb;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import sp.senac.entidades.Produto;
 
 /**
@@ -22,8 +24,24 @@ public class ProdutoEJB implements ProdutoEJBLocal {
     
     @Override
     public void cadastrar(Produto produto) {
-        //em.persist(cliente);
+        em.persist(produto);
     }
+    
+    @Override
+    public List<Produto> buscarPorNomeProduto(String nome) {
+        
+        Query query = em.createNamedQuery("produto.buscarPorNomeProduto");
+        query.setParameter("nomeProduto","%"+nome+"%");//NOME DA COLUNA QUE QUERO TRAZER
+        return query.getResultList();
+        
+    }
+
+    @Override
+    public List<Produto> buscarTodosProdutos() {
+        Query query = em.createQuery("select p from Produto p");
+        return query.getResultList();
+    }
+    
 
     
 }
