@@ -31,7 +31,7 @@ public class ProdutoEJB implements ProdutoEJBLocal {
     public List<Produto> buscarPorNomeProduto(String nome) {
         
         Query query = em.createNamedQuery("produto.buscarPorNomeProduto");
-        query.setParameter("nomeProduto",nome);//NOME DA COLUNA QUE QUERO TRAZER
+        query.setParameter("nomeProduto","%"+nome+"%");//NOME DA COLUNA QUE QUERO TRAZER
         return query.getResultList();
         
     }

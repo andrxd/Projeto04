@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 @Table(name = "Produto")
 @NamedQueries(
         @NamedQuery(name = "produto.buscarPorNomeProduto",//NOME DA QUERY
-                query = "select p from Produto p where p.nomeProduto = :nomeProduto"))
+                query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto)"))
 public class Produto implements Serializable {
 
     @Id
