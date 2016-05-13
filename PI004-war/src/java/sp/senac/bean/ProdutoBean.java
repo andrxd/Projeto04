@@ -5,22 +5,76 @@
  */
 package sp.senac.bean;
 
-import javax.inject.Named;
-
+import java.util.List;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import sp.senac.ejb.ProdutoEJBLocal;
+import sp.senac.entidades.Produto;
 
 /**
  *
  * @author Andre
  */
-@Named(value = "produtoBean")
+@ManagedBean
 @SessionScoped
 public class ProdutoBean {
 
-    /**
-     * Creates a new instance of ProdutoBean
-     */
-    public ProdutoBean() {
+    private Produto produto;
+    @EJB
+    private ProdutoEJBLocal produtoEJB;
+    private String nomeProduto;
+    private List<Produto> listaProdutos;
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public ProdutoEJBLocal getProdutoEJB() {
+        return produtoEJB;
+    }
+
+    public void setProdutoEJB(ProdutoEJBLocal produtoEJB) {
+        this.produtoEJB = produtoEJB;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
     
+    public ProdutoBean() {
+        produto = new Produto();
+    }
+    
+    public String cadastrar() {
+       
+        produtoEJB.cadastrar(produto);
+ 
+        return "index";
+    }
+    
+     public void listarTodosProdutos(){
+        produtoEJB.buscarTodosProdutos();
+    }
+     
+     public void recuperarProdutosNome() {
+        listaProdutos = produtoEJB.buscarPorNomeProduto(nomeProduto);
+    } 
+
+    public List<Produto> getListaProduto() {
+        return listaProdutos;
+    }
+
+    public void setListaProduto(List<Produto> listaProdutos) {
+        this.listaProdutos = listaProdutos;
+    }
+     
 }

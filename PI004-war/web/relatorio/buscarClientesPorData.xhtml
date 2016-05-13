@@ -8,25 +8,24 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form>
+       <h:form id="form">
             <h:panelGrid columns="2">
-                <h:outputLabel value="Data de Nascimento"></h:outputLabel>
-                <p:calendar value="#{clienteBean.dataNascimento}">
-                    <p:ajax event="dateSelect" listener="#{clienteBean.recuperarClientesPorData()}" update="tabelaClientes" />
-                </p:calendar>
-
-                <p:dataTable var="cliente" id="tabelaClientes" value="#{clienteBean.listaClientes}">
+                <h:outputLabel value="Nome Produto"></h:outputLabel>
+                
+                <h:inputText value="#{produtoBean.nomeProduto}" />
+                <h:commandButton action="#{produtoBean.recuperarProdutosNome()}" value="Buscar">
+                <f:ajax execute="@form" render="form:result" />
+                </h:commandButton>
+                
+                <p:dataTable var="produto" id="result" value="#{produtoBean.listaProduto}">
                     <p:column headerText="Nome">
-                        <h:outputLabel value="#{cliente.nome}"/>
-                    </p:column>
-                    <p:column headerText="Data de Nascimento">
-                        <h:outputLabel value="#{cliente.dataNascimento}">
-                            <f:convertDateTime pattern="dd/MM/yyyy"/>
-                        </h:outputLabel>
-                    </p:column>
+                        <h:outputLabel value="#{produto.nomeProduto}"/>
+                    </p:column>                 
                 </p:dataTable>
+                
             </h:panelGrid>
         </h:form>
+
     </h:body>
 </html>
 
