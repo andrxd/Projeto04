@@ -21,4 +21,9 @@
             <to-view-id>/cadastrarVenda.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <!--<lifecycle>
+    <phase-listener>
+        sp.senac.listener.AutorizacaoListener
+    </phase-listener>
+  </lifecycle>-->
 </faces-config>
