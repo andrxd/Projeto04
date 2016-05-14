@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -25,6 +26,7 @@ import javax.persistence.TemporalType;
 public class Produto implements Serializable {
 
     @Id
+    @GeneratedValue
     private int id;
 
     @Column(name = "codProduto") //DEFINE QUE A VARIAVEL VAI BUSCAR O NOME DA COLUNA NO BANCO 

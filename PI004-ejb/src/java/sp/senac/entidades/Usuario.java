@@ -22,62 +22,62 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-@Table(name="UZI_CLI")
-public class Cliente implements Serializable{
+@Table(name="Usuario")
+public class Usuario implements Serializable{
     
     @Id
     private int id;
     
-    @Column(name="NOME_CLI")
+    @Column(name="Nome")
     private String nome;
     
-    @Column(name="LOGIN_CLI")
+    @Column(name="Login")
     private String login;
     
-    @Column(name="SENHA_CLI")
+    @Column(name="Senha")
     private String senha;
     
-    @Column(name="EMAIL_CLI")
+    @Column(name="Email")
     private String email;
     
-    @Column(name="RG_CLI")
+    @Column(name="RG")
     private String rg;
     
-    @Column(name="DT_NASCIMENTO")
+    @Column(name="dtNacimento")
     @Temporal(TemporalType.DATE)
     private Date dtNascimento;
     
-    @Column(name="CPF_CLI")
+    @Column(name="CPF")
     private String cpf;
     
-    @Column(name="SEXO_CLI")
+    @Column(name="Sexo")
     private String sexo;
     
-    @Column(name="TEL_CLI")
+    @Column(name="Telefone")
     private String tel;
     
-    @Column(name="CEL_CLI")
+    @Column(name="Celular")
     private String cel;
     
-    @Column(name="TIPO_USU")
+    @Column(name="tipoUsuario")
     private String tipo;
     
-    @Column(name="CARGO_USU")
+    @Column(name="Cargo")
     private String cargo;
     
-    @Column(name="CEP_CLI")
+    @Column(name="CEP")
     private String CEP;
     
-    @Column(name="RUA_CLI")
+    @Column(name="RUA")
     private String rua;
     
-    @Column(name="NUM_ENDERECO_CLI")
+    @Column(name="NumeroEndereco")
     private int num;
     
-    @Column(name="COMPL_ENDERECO_CLI")
+    @Column(name="ComplementoEndereco")
     private String complemento;
     
-    @Column(name="BAIRRO_CLI")
+    @Column(name="Bairro")
     private String bairro;
 
     public int getId() {

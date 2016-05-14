@@ -7,15 +7,15 @@ package sp.senac.ejb;
 
 import java.util.List;
 import javax.ejb.Local;
-import sp.senac.entidades.Cliente;
+import sp.senac.entidades.Usuario;
 
 /**
  *
  * @author tiago.bscarton
  */
 @Local
-public interface ClienteEJBLocal {
+public interface UsuarioEJBLocal {
     
-    public void cadastrar(Cliente cliente);
-    public List<Cliente> buscarClientes();
+    public void cadastrar(Usuario usuario);
+    public List<Usuario> buscarUsuarios();
 }

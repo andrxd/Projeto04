@@ -7,61 +7,61 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form id="cadastrarCliente">
+        <h:form id="cadastrarUsuario">
              
             <h:panelGrid columns="2">
-            
+           
                 <h:outputLabel value="ID"/>
-                <p:inputText value="#{clienteBean.cliente.id}" />
+                <p:inputText value="#{usuarioBean.usuario.id}" />
                 
                 <h:outputLabel value="Nome"/>
-                <p:inputText value="#{clienteBean.cliente.nome}" />
+                <p:inputText value="#{usuarioBean.usuario.nome}" />
                 
                 <h:outputLabel value="Login"/>
-                <p:inputText value="#{clienteBean.cliente.login}" />
+                <p:inputText value="#{usuarioBean.usuario.login}" />
                 
                 <h:outputLabel value="Senha"/>
-                <p:inputText value="#{clienteBean.cliente.senha}" />
+                <p:inputText value="#{usuarioBean.usuario.senha}" />
                 
                 <h:outputLabel value="Email"/>
-                <p:inputText value="#{clienteBean.cliente.email}" />
+                <p:inputText value="#{usuarioBean.usuario.email}" />
                       
                 <h:outputLabel value="RG"/>
-                <p:inputText value="#{clienteBean.cliente.rg}" />
+                <p:inputText value="#{usuarioBean.usuario.rg}" />
                 
                 <h:outputLabel value="Data Nascimento"/>
-                <p:inputText value="#{clienteBean.cliente.dtNascimento}" />
+                <p:inputText value="#{usuarioBean.usuario.dtNascimento}" />
                    
                 <h:outputLabel value="CPF"/>
-                <p:inputText value="#{clienteBean.cliente.cpf}" />
+                <p:inputText value="#{usuarioBean.usuario.cpf}" />
                 
                 <h:outputLabel value="Sexo"/>
-                <p:inputText value="#{clienteBean.cliente.sexo}" />
+                <p:inputText value="#{usuarioBean.usuario.sexo}" />
                 
                 <h:outputLabel value="Telefone"/>
-                <p:inputText value="#{clienteBean.cliente.tel}" />
+                <p:inputText value="#{usuarioBean.usuario.tel}" />
                 
                 <h:outputLabel value="Celular"/>
-                <p:inputText value="#{clienteBean.cliente.cel}" />
+                <p:inputText value="#{usuarioBean.usuario.cel}" />
                 
                 <h:outputLabel value="Cep"/>
-                <p:inputText value="#{clienteBean.cliente.CEP}" />
+                <p:inputText value="#{usuarioBean.usuario.CEP}" />
                 
                 <h:outputLabel value="Rua"/>
-                <p:inputText value="#{clienteBean.cliente.rua}" />
+                <p:inputText value="#{usuarioBean.usuario.rua}" />
                 
                 <h:outputLabel value="Num"/>
-                <p:inputText value="#{clienteBean.cliente.num}" />
+                <p:inputText value="#{usuarioBean.usuario.num}" />
                 
                 <h:outputLabel value="Complemento"/>
-                <p:inputText value="#{clienteBean.cliente.complemento}" />
+                <p:inputText value="#{usuarioBean.usuario.complemento}" />
                 
                 <h:outputLabel value="Bairro"/>
-                <p:inputText value="#{clienteBean.cliente.bairro}" />
+                <p:inputText value="#{usuarioBean.usuario.bairro}" />
                      
                 <h:message for="mensagem" />
 
-                <p:commandButton action="#{clienteBean.cadastrar()}" value="Cadastrar"/>
+                <p:commandButton action="#{usuarioBean.cadastrar()}" value="Cadastrar"/>
 
             </h:panelGrid>
             

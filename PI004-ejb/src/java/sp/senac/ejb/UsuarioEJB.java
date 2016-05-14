@@ -10,26 +10,26 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import sp.senac.entidades.Cliente;
+import sp.senac.entidades.Usuario;
 
 /**
  *
  * @author tiago.bscarton
  */
 @Stateless
-public class ClienteEJB implements ClienteEJBLocal {
+public class UsuarioEJB implements UsuarioEJBLocal {
 
     @PersistenceContext
     private EntityManager em;
 
     @Override
-    public void cadastrar(Cliente cliente) {
-        em.persist(cliente);
+    public void cadastrar(Usuario usuario) {
+        em.persist(usuario);
     }
 
     @Override
-    public List<Cliente> buscarClientes() {
-        Query query = em.createQuery("select c from Cliente c");
+    public List<Usuario> buscarUsuarios() {
+        Query query = em.createQuery("select u from Usuario u");
         return query.getResultList();
     }
 
