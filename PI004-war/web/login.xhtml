@@ -13,32 +13,30 @@
 
     </h:head>
     <h:body>
-        
-         <!--Importanto Cabeçalho-->
+
+        <!--Importanto Cabeçalho-->
         <ui:include src="cabecalho.xhtml"/>
 
-         <!--Importanto Menus-->
+        <!--Importanto Menus-->
         <ui:include src="menu.xhtml"/>
-        
-       <h:form id="cadastrarCliente">
-             
-            <h:panelGrid columns="2">
-            
-                <h:outputLabel value="Nome"/>
-                <p:inputText value="#{clienteBean.cliente.id}" />
-                
-                <h:outputLabel value="Login"/>
-                <p:inputText value="#{clienteBean.cliente.nome}" />
-                                     
-                <h:message for="mensagem" />
-                
-                <p:commandButton action="#{clienteBean.cadastrar()}" value="Entrar"/>
 
-            </h:panelGrid>
-            
-        </h:form> 
+        <h2>Login</h2>
+        <h:form prependId="false" id="login-form">
+            <div><h:messages /></div>
+            <p>
+                <h:outputLabel value="Nome" />:
+                <h:inputText value="#{usuarioBean.login}" id="txt-nome" />
+            </p>
+            <p>
+                <h:outputLabel value="Senha" />:
+                <h:inputSecret value="#{usuarioBean.senha}" id="txt-senha" />
+            </p>
+            <p><h:commandButton value="Entrar" action="#{usuarioBean.autenticarUsuario()}" /></p>
+        </h:form>
 
         
+
+
     </h:body>
 </html>
 

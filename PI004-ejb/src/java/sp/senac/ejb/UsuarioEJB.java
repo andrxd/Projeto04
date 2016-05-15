@@ -30,7 +30,20 @@ public class UsuarioEJB implements UsuarioEJBLocal {
     @Override
     public List<Usuario> buscarUsuarios() {
         Query query = em.createQuery("select u from Usuario u");
+        
+        List<Usuario> teste = query.getResultList();
+        
         return query.getResultList();
+    }
+
+    @Override
+    public Usuario autenticarUsuario(String login, String senha) {
+        Query query = em.createNamedQuery("usuario.autenticar");
+        query.setParameter("login",login);
+        query.setParameter("senha",senha);
+        
+        Usuario teste = (Usuario)query.getSingleResult();
+        return (Usuario)query.getSingleResult();
     }
 
 }

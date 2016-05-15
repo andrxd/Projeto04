@@ -11,11 +11,13 @@ import sp.senac.entidades.Usuario;
 
 /**
  *
- * @author tiago.bscarton
+ * @author andre.rpinto
  */
 @Local
 public interface UsuarioEJBLocal {
     
     public void cadastrar(Usuario usuario);
     public List<Usuario> buscarUsuarios();
+    
+    public Usuario autenticarUsuario(String login, String senha);
 }

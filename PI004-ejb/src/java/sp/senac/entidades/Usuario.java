@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -23,9 +24,13 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="Usuario")
+@NamedQueries(
+        @NamedQuery(name = "usuario.autenticar",//NOME DA QUERY
+                query = "select u from Usuario u where UPPER(u.login) = UPPER(:login) and u.senha = :senha"))
 public class Usuario implements Serializable{
     
     @Id
+    @GeneratedValue
     private int id;
     
     @Column(name="Nome")
