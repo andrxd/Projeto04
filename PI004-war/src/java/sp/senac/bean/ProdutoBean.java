@@ -8,7 +8,8 @@ package sp.senac.bean;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import sp.senac.ejb.ProdutoEJBLocal;
 import sp.senac.entidades.Produto;
 
@@ -17,7 +18,7 @@ import sp.senac.entidades.Produto;
  * @author Andre
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class ProdutoBean {
 
     private Produto produto;
@@ -25,6 +26,9 @@ public class ProdutoBean {
     private ProdutoEJBLocal produtoEJB;
     private String nomeProduto;
     private List<Produto> listaProdutos;
+
+    @ManagedProperty(value = "#{param.id}")
+    private Long idProduto;
 
     public Produto getProduto() {
         return produto;
@@ -49,25 +53,25 @@ public class ProdutoBean {
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
-    
+
     public ProdutoBean() {
         produto = new Produto();
     }
-    
+
     public String cadastrar() {
-       
+
         produtoEJB.cadastrar(produto);
- 
+
         return "index";
     }
-    
-     public void listarTodosProdutos(){
-        produtoEJB.buscarTodosProdutos();
+
+    public List<Produto> listarTodosProdutos() {
+        return produtoEJB.buscarTodosProdutos();
     }
-     
-     public void recuperarProdutosNome() {
+
+    public void recuperarProdutosNome() {
         listaProdutos = produtoEJB.buscarPorNomeProduto(nomeProduto);
-    } 
+    }
 
     public List<Produto> getListaProduto() {
         return listaProdutos;
@@ -76,5 +80,19 @@ public class ProdutoBean {
     public void setListaProduto(List<Produto> listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-     
+
+    /**
+     * @return the idProduto
+     */
+    public Long getIdProduto() {
+        return idProduto;
+    }
+
+    /**
+     * @param idProduto the idProduto to set
+     */
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
+    }
+
 }

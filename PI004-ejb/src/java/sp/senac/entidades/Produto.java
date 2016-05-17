@@ -20,9 +20,11 @@ import javax.persistence.TemporalType;
  */
 @Entity // INFORMA QUE É UMA ENTIDADE 
 @Table(name = "Produto")
-@NamedQueries(
-        @NamedQuery(name = "produto.buscarPorNomeProduto",//NOME DA QUERY
-                query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto)"))
+@NamedQueries({
+    @NamedQuery(name = "produto.buscarPorNomeProduto",//NOME DA QUERY
+            query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto)"),
+    @NamedQuery(name = "produto.obterProduto",//NOME DA QUERY
+            query = "select p from Produto p where p.id = :idProduto")})
 public class Produto implements Serializable {
 
     @Id

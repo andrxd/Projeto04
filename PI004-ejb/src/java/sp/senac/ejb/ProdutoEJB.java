@@ -41,6 +41,13 @@ public class ProdutoEJB implements ProdutoEJBLocal {
         Query query = em.createQuery("select p from Produto p");
         return query.getResultList();
     }
+
+    @Override
+    public Produto obterProduto(int id) {
+        Query query = em.createNamedQuery("produto.obterProduto");
+        query.setParameter("idProduto", id);
+        return (Produto) query.getSingleResult();
+    }
     
 
     
