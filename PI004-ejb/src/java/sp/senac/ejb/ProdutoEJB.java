@@ -43,7 +43,7 @@ public class ProdutoEJB implements ProdutoEJBLocal {
     }
 
     @Override
-    public Produto obterProduto(int id) {
+    public Produto obterProduto(long id) {
         Query query = em.createNamedQuery("produto.obterProduto");
         query.setParameter("idProduto", id);
         return (Produto) query.getSingleResult();

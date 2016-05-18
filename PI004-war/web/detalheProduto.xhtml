@@ -11,14 +11,14 @@
         <h:outputScript name="js/bootstrap.min.js" />
     </h:head>
     <h:body>
-        
+
         <!--Importanto Cabeçalho-->
         <ui:include src="cabecalho.xhtml"/>
 
-         <!--Importanto Menus-->
+        <!--Importanto Menus-->
         <ui:include src="menu.xhtml"/>
-        
-        
+
+
         <div class="container">
             <div class="col-md-12">
                 <div class="center-block text-center">
@@ -38,29 +38,26 @@
 
                         </div>
                         <div class="product col-sm-6">
-                            <h2>The Witcher 3: Wild Hunt - PS4</h2>
-                            <p>The Witcher 3: Wild Hunt um game de fantasia com uma história não linear em um mundo aberto, com escolhas difíceis que produzem consequências reais. Uma obra prima de história e jogabilidade, The Witcher 3 é tudo que um fã de RPG poderia querer.</p>
+                            <h2>#{produtoBean.produto.nomeProduto}</h2>
+                            <p>#{produtoBean.produto.descricaoProduto}</p>
                             <hr></hr>
-                            <h2 class="text-right">R$150</h2>
+                            <h2 class="text-right">R$#{produtoBean.produto.valorProduto}</h2>
                             <button class="btn btn-primary btn-lg ">Adicionar ao Carrinho</button> 
-                          <!-- <button class="btn btn-primary btn-lg ">Comprar</button> -->
+                            <!-- <button class="btn btn-primary btn-lg ">Comprar</button> -->
                             <hr></hr>
 
 
                             <ul class="nav nav-tabs">                                
-                                <li><a data-toggle="tab" href="#Descricao">Descrição</a></li>
-                                <li><a data-toggle="tab" href="#Caracteristicas">Caracteristicas</a></li>
+                                <li><a data-toggle="tab" href="#Descricao">Descrição</a></li>                                
                             </ul>
                             <div class="tab-content">    
                                 <div class="tab-pane active" id="Descricao">
-                                    <div class="tab-pane" id="Descricao"><h6>No jogo The Witcher 3, um mal antigo acorda. Um mal que semeia o terror, seu nome é dito apenas em sussurros: Wild Hunt. Um conjunto de cavaleiros espectrais místicos com grande poder de destruição, sua caça tem um único alvo: humanos. A espada do destino tem dois gumes. 
-                                            Você é um deles! Imperdível, The Witcher 3: Wild Hunt é o capítulo final da aclamada e moderna saga de RPG. A equipe da CD Projekt RED pretende fazer de The Witcher 3: Wild Hunt um jogo rico, maior e mais profundo - um avanço na qualidade que irá elevar a franquia a outro patamar. 
-                                            Mapa gigantesco, sistema de combate aprimorado, escolhas que mudam o rumo da história! O mundo está um caos. 
-                                            O ar é espesso e carregado de tensão e fumaça dos vilarejos queimados. O temível Império de Nilfgaard atacou novamente, devastando os desafortunados do Reino do Norte. O outrora poderoso que tentou usar Geralt para seu próprio benefício agora esta desaparecido. Nesses tempos incertos, ninguém pode dizer o que guarda o futuro, quem trará paz ao mundo e quem irá causar apenas miséria. 
-                                            Mas uma força das trevas mortal emerge. Os pequenos homens e mulheres comandando exércitos despreparados não entendem que seus conflitos são jogo de criança comparado à Wild Hunt, a ameaça do outro mundo que agora se aproxima. Esses cavaleiros espectrais amaldiçoam o mundo há anos, afundando-o em miséria e desespero, mas nesse momento, Wild Hunt procura uma pessoa em particular, aquela unida a Geralt pelo destino, a única alma que Geralt considera familiar.
+                                    <div class="tab-pane" id="Descricao">
+                                        <h6>
+                                            #{produtoBean.produto.descricaoProduto}
+                                        </h6>
+                                    </div>
 
-                                        </h6></div>
-                                    <div class="tab-pane" id="Caracteristicas"><h4></h4></div>
                                 </div>
                             </div>
                         </div>
@@ -72,8 +69,8 @@
             </div>
             <!--/container-->
         </div>   
-      
-        
+
+
     </h:body>
 </html>
 

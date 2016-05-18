@@ -21,6 +21,6 @@ public interface ProdutoEJBLocal {
     
     public List<Produto> buscarTodosProdutos();
     
-    public Produto obterProduto(int id);
+    public Produto obterProduto(long id);
     
 }

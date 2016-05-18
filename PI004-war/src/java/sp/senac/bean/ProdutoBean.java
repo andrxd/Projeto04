@@ -31,7 +31,8 @@ public class ProdutoBean {
     private Long idProduto;
 
     public Produto getProduto() {
-        return produto;
+        Produto teste = obterProduto(getIdProduto());
+        return obterProduto(getIdProduto());
     }
 
     public void setProduto(Produto produto) {
@@ -95,4 +96,7 @@ public class ProdutoBean {
         this.idProduto = idProduto;
     }
 
+    private Produto obterProduto(long idProduto) {
+        return produtoEJB.obterProduto(idProduto);
+    }
 }
