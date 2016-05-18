@@ -15,7 +15,7 @@ import sp.senac.entidades.Usuario;
 
 /**
  *
- * @author tiago.bscarton
+ * @author Andre
  */
 @ManagedBean
 @SessionScoped
