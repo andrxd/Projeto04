@@ -22,8 +22,7 @@ import javax.persistence.TemporalType;
 public class Compra implements Serializable {
 
     @Id
-    @GeneratedValue
-    @Column(name = "idCompra")
+    @GeneratedValue    
     private Long id;
 
     @Column(name = "dataCriacao")
@@ -36,6 +35,9 @@ public class Compra implements Serializable {
     
     private Usuario usuario;
 
+    @Column(name = "idUsuario")
+    private int idUsuario;
+    
     private List<ItemCompra> itensCompra;
 
     public Compra() {
