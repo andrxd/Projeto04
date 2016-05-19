@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>Detalhes do Produto</title>
         <h:outputScript name="js/jquery-1.11.3.js" />
@@ -46,7 +47,11 @@
                             <!-- <button class="btn btn-primary btn-lg ">Comprar</button> -->
                             <hr></hr>
 
-
+                            <div class="col-sm-8">
+                                <h:form prependId="false">
+                                    <h:commandButton action="#{compraBean.adicionarProduto(produtoBean.produto, 1)}" styleClass="btn btn-success btn-lg btn-block" pt:role="button" value="Comprar" />
+                                </h:form>
+                            </div>
                             <ul class="nav nav-tabs">                                
                                 <li><a data-toggle="tab" href="#Descricao">Descrição</a></li>                                
                             </ul>

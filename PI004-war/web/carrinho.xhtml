@@ -59,39 +59,41 @@
             <table id="cart" class="table table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th style="width:50%">Product</th>
-                        <th style="width:10%">Price</th>
-                        <th style="width:8%">Quantity</th>
+                        <th style="width:50%">Produto</th>
+                        <th style="width:10%">Preço</th>
+                        <th style="width:8%">Quantidade</th>
                         <th style="width:22%" class="text-center">Subtotal</th>
                         <th style="width:10%"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
+                    <ui:repeat value="#{compraBean.itens}" var="item">
+                        <tr>
+                            <td data-th="Product">
+                                <div class="row">
 
-                                <div class="col-sm-2 hidden-xs"><img src="resources/img/thewitcher3.jpg" alt="..." class="img-responsive"/></div>
-                                <div class="col-sm-10">
-                                    <h4 class="nomargin">The Witcher 3 - PS4</h4>
-                                    <p>Nanco Bandai</p>
+                                    <div class="col-sm-2 hidden-xs"><img src="resources/img/thewitcher3.jpg" alt="..." class="img-responsive"/></div>
+                                    <div class="col-sm-10">
+                                        <h4 class="nomargin">#{item.produto.nomeProduto}</h4>
+                                        <p>#{item.produto.fabricanteProduto}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">R$100,00</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control text-center" value="1"/>
-                        </td>
-                        <td data-th="Subtotal" class="text-center">R$100,00</td>
-                        <td class="actions" data-th="">
-                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
-                        </td>
-                    </tr>
+                            </td>
+                            <td data-th="Price">R$#{item.produto.valorProduto}</td>
+                            <td data-th="Quantity">
+                                <input type="number" class="form-control text-center" value="#{item.quantidade}"/>
+                            </td>
+                            <td data-th="Subtotal" class="text-center">R$#{item.preco}</td>
+                            <td class="actions" data-th="">
+                                <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                            </td>
+                        </tr>
+                    </ui:repeat>
                 </tbody>
                 <tfoot>
                     <tr class="visible-xs">
-                        <td class="text-center"><strong>Total 1.99</strong></td>
+                        <td class="text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
                     </tr>
                     <tr>
 
@@ -103,7 +105,7 @@
 
                         <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continuar Comprando </a></td>
                         <td colspan="2" class="hidden-xs"></td>
-                        <td class="hidden-xs text-center"><strong>Total R$200,00</strong></td>
+                        <td class="hidden-xs text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
                         <td><a href="#" class="btn btn-success btn-block">Finalizar <i class="fa fa-angle-right"></i></a></td>
                     </tr>
                 </tfoot>

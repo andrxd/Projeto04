@@ -5,6 +5,8 @@
  */
 package sp.senac.bean;
 
+import br.senac.tads.dsw.lojinha.common.service.ProdutoService;
+import br.senac.tads.dsw.lojinha.common.service.jpaimpl.ProdutoServiceJPAImpl;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -22,6 +24,8 @@ import sp.senac.entidades.Produto;
 public class ProdutoBean {
 
     private Produto produto;
+    
+    private Produto prodTeste;
     @EJB
     private ProdutoEJBLocal produtoEJB;
     private String nomeProduto;
@@ -31,8 +35,9 @@ public class ProdutoBean {
     private Long idProduto;
 
     public Produto getProduto() {
-        Produto teste = obterProduto(getIdProduto());
-        return obterProduto(getIdProduto());
+        //Produto teste = obterProduto(getIdProduto());
+        //prodTeste = produto;
+        return obter(getIdProduto());
     }
 
     public void setProduto(Produto produto) {
@@ -98,5 +103,10 @@ public class ProdutoBean {
 
     private Produto obterProduto(long idProduto) {
         return produtoEJB.obterProduto(idProduto);
+    }
+
+    public Produto obter(long idProduto) {
+        ProdutoService service = new ProdutoServiceJPAImpl();
+        return service.obter(idProduto);
     }
 }
