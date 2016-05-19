@@ -53,6 +53,8 @@ import sp.senac.entidades.ProdutoQuantidade;
 public class CompraBean implements Serializable {
 
     
+    private Date data = new Date();
+    
     @EJB
     private CompraEJBLocal compraEJB;
     
@@ -117,7 +119,7 @@ public class CompraBean implements Serializable {
         return total;
     }
     
-    public void registrarCompra(int idUsuario){
+    public String registrarCompra(int idUsuario){
         Compra compra = new Compra();
         Date dt = new Date();
         compra.setIdUsuario(idUsuario);
@@ -125,6 +127,7 @@ public class CompraBean implements Serializable {
         compra.setValorTotal(getValorTotal());
         
         compraEJB.registrarCompra(compra);
+        return "finalizarCompra.xhtml?faces-redirect=true";
     }
 
     /**
@@ -139,5 +142,19 @@ public class CompraBean implements Serializable {
      */
     public void setCompra(Compra compra) {
         this.compra = compra;
+    }
+
+    /**
+     * @return the data
+     */
+    public Date getData() {
+        return data;
+    }
+
+    /**
+     * @param data the data to set
+     */
+    public void setData(Date data) {
+        this.data = data;
     }
 }

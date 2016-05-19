@@ -5,10 +5,12 @@
  */
 package sp.senac.ejb;
 
+import java.util.Set;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import sp.senac.entidades.Compra;
+import sp.senac.entidades.ProdutoQuantidade;
 
 /**
  *
@@ -24,6 +26,15 @@ public class CompraEJB implements CompraEJBLocal {
     public void registrarCompra(Compra compra) {
         em.persist(compra);
     }
+
+    @Override
+    public void registrarItens(Set<ProdutoQuantidade> itens) {
+         for (ProdutoQuantidade pq : itens) {
+            em.persist(pq);
+        }
+    }
+    
+    
 
     
 }

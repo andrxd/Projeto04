@@ -5,9 +5,10 @@
  */
 package sp.senac.ejb;
 
+import java.util.Set;
 import javax.ejb.Local;
 import sp.senac.entidades.Compra;
-
+import sp.senac.entidades.ProdutoQuantidade;
 
 /**
  *
@@ -15,5 +16,8 @@ import sp.senac.entidades.Compra;
  */
 @Local
 public interface CompraEJBLocal {
+
     public void registrarCompra(Compra compra);
+
+    public void registrarItens(Set<ProdutoQuantidade> compra);
 }

@@ -37,7 +37,7 @@ public class ProdutoBean {
     public Produto getProduto() {
         //Produto teste = obterProduto(getIdProduto());
         //prodTeste = produto;
-        return obter(getIdProduto());
+        return obterProduto(getIdProduto());
     }
 
     public void setProduto(Produto produto) {
