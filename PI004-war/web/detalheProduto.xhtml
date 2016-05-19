@@ -28,6 +28,7 @@
                 </div>
                 <div class="container">
                     <div class="menu row">
+                        
                         <div class="product col-sm-6">
                             <!--
                             <a href="#"><img class="img-responsive" src="resources/img/thewitcher3.jpg"></img><i class="btn btn-product fa fa-star"></i></a>
@@ -40,16 +41,15 @@
                         </div>
                         <div class="product col-sm-6">
                             
+                          
+                            
                             <h:form prependId="false">
                             
                             <h2>#{produtoBean.produto.nomeProduto}</h2>
                             <p>#{produtoBean.produto.descricaoProduto}</p>
                             <hr></hr>
                             <h2 class="text-right">R$#{produtoBean.produto.valorProduto}</h2>
-                            
-                            <h:outputLabel value="#{produtoBean.produto.id}"/>
-                            
-                            
+
                             
                             <h:commandButton action="#{compraBean.adicionarProduto(produtoBean.produto.id,1)}" styleClass="btn btn-success btn-lg btn-block" pt:role="button" value="Comprar" />
                             </h:form>

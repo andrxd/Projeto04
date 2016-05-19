@@ -63,7 +63,7 @@ public class CompraBean implements Serializable {
     
     private ProdutoQuantidade obterItem(Produto produto) {
         for (ProdutoQuantidade pq : itens) {
-            if (pq.getProduto().equals(produto)) {
+            if (pq.getProduto().getId()==(produto.getId())) {
                 return pq;
             }
         }
@@ -74,7 +74,7 @@ public class CompraBean implements Serializable {
     // obter objeto produto a partir do id
 
         Produto prod = new Produto();
-
+        int qtd = 1; 
         ProdutoService prodService = new ProdutoServiceJPAImpl();
         Produto p = prodService.obter(idProduto);
 
@@ -82,9 +82,13 @@ public class CompraBean implements Serializable {
         if (pq == null) {
             // Cria um novo item para o produto e quantidade informados
             itens.add(new ProdutoQuantidade(p, quantidade));
+           
         } else {
             // Altera a quantidade informada do produto
-            pq.setQuantidade(quantidade);
+            pq.getQuantidade();
+            qtd = pq.getQuantidade();
+            qtd++;
+            pq.setQuantidade(qtd);
         }
 
     // Mensagem de sucesso para usuário
