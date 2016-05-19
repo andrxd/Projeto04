@@ -58,8 +58,13 @@ public class Produto implements Serializable {
     @Column(name = "categoriaProduto") //DEFINE QUE A VARIAVEL VAI BUSCAR O NOME DA COLUNA NO BANCO 
     private String categoriaProduto;
 
+    @Column(name="imgCaminho")
+    private  String imgCaminho;
+    
     @Temporal(TemporalType.DATE)
     private Date dtCadastroProduto;
+    
+    
 
     //private List<ImagemProduto> img;
     public Produto() {
@@ -152,6 +157,14 @@ public class Produto implements Serializable {
 
     public void setDtCadastroProduto(Date dtCadastroProduto) {
         this.dtCadastroProduto = dtCadastroProduto;
+    }
+
+    public String getImgCaminho() {
+        return imgCaminho;
+    }
+
+    public void setImgCaminho(String imgCaminho) {
+        this.imgCaminho = imgCaminho;
     }
 
 }
