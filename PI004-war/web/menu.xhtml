@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>       
         <h:outputScript name="js/jquery-1.11.3.js" />
         <h:outputStylesheet name="css/style.css" /> 
@@ -71,14 +72,10 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Bem-vindo : #{usuarioBean.usuario.nome}</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Meu Cadastro</a></li>
-                                <li><a href="#">Sair</a></li>
-
-                            </ul>
-
+                        <li>
+                            <h:form>
+                            <p:commandButton action="#{usuarioBean.logout()}" value="Sair"></p:commandButton>
+                            </h:form>
                         </li>
                         <li><a href="#">Carrinho</a></li>
                         <li><a href="#">Cadastre-se</a></li>
