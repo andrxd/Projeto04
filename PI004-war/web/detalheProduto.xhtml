@@ -39,19 +39,26 @@
 
                         </div>
                         <div class="product col-sm-6">
+                            
+                            <h:form prependId="false">
+                            
                             <h2>#{produtoBean.produto.nomeProduto}</h2>
                             <p>#{produtoBean.produto.descricaoProduto}</p>
                             <hr></hr>
                             <h2 class="text-right">R$#{produtoBean.produto.valorProduto}</h2>
-                            <button class="btn btn-primary btn-lg ">Adicionar ao Carrinho</button> 
+                            
+                            <h:outputLabel value="#{produtoBean.produto.id}"/>
+                            
+                            
+                            
+                            <h:commandButton action="#{compraBean.adicionarProduto(produtoBean.produto.id,1)}" styleClass="btn btn-success btn-lg btn-block" pt:role="button" value="Comprar" />
+                            </h:form>
+                           
+                            <!--<button class="btn btn-primary btn-lg ">Adicionar ao Carrinho</button> -->
                             <!-- <button class="btn btn-primary btn-lg ">Comprar</button> -->
                             <hr></hr>
 
-                           <!-- <div class="col-sm-8">
-                                <h:form prependId="false">
-                                    <h:commandButton action="#{compraBean.adicionarProduto(produtoBean.produto, 1)}" styleClass="btn btn-success btn-lg btn-block" pt:role="button" value="Comprar" />
-                                </h:form>
-                            </div>-->
+                           
                             <ul class="nav nav-tabs">                                
                                 <li><a data-toggle="tab" href="#Descricao">Descrição</a></li>                                
                             </ul>
