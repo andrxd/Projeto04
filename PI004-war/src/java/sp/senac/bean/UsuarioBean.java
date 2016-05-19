@@ -54,16 +54,16 @@ public class UsuarioBean {
     }
 
     public String autenticarUsuario() {
+        try{
         Usuario usuario = usuarioEJB.autenticarUsuario(login, senha);
         if (usuario != null) {
             this.usuario = usuario;
             return "listaProdutos.xhtml?faces-redirect=true";
+        } 
+        }catch(Exception E){
+             return "login.xhtml?faces-redirect=true";  
         }
-        // Se der erro
-        FacesMessage msg = new FacesMessage("Erro de login", "ERROR MSG");
-        msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-        return "login.xhtml?faces-redirect=true";       
+       return "0";
     }
 
     public Usuario getUsuario() {
