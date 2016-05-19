@@ -28,13 +28,19 @@ import br.senac.tads.dsw.lojinha.common.service.jpaimpl.ProdutoServiceJPAImpl;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import sp.senac.ejb.CompraEJB;
+import sp.senac.ejb.CompraEJBLocal;
+import sp.senac.ejb.ProdutoEJBLocal;
+import sp.senac.entidades.Compra;
 import sp.senac.entidades.Produto;
 import sp.senac.entidades.ProdutoQuantidade;
 
@@ -46,9 +52,15 @@ import sp.senac.entidades.ProdutoQuantidade;
 @SessionScoped
 public class CompraBean implements Serializable {
 
+    
+    @EJB
+    private CompraEJBLocal compraEJB;
+    
     private Set<ProdutoQuantidade> itens
             = new LinkedHashSet<ProdutoQuantidade>();
-
+    
+    private Compra compra = new Compra();
+    
     private ProdutoQuantidade obterItem(Produto produto) {
         for (ProdutoQuantidade pq : itens) {
             if (pq.getProduto().equals(produto)) {
@@ -100,5 +112,28 @@ public class CompraBean implements Serializable {
         }
         return total;
     }
+    
+    public void registrarCompra(int idUsuario){
+        Compra compra = new Compra();
+        Date dt = new Date();
+        compra.setIdUsuario(idUsuario);
+        compra.setDataCompra(dt);
+        compra.setValorTotal(getValorTotal());
+        
+        compraEJB.registrarCompra(compra);
+    }
 
+    /**
+     * @return the compra
+     */
+    public Compra getCompra() {
+        return compra;
+    }
+
+    /**
+     * @param compra the compra to set
+     */
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
 }

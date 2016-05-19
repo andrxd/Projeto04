@@ -1,6 +1,7 @@
 package sp.senac.entidades;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -38,14 +39,18 @@ public class Compra implements Serializable {
     @Column(name = "idUsuario")
     private int idUsuario;
     
+    @Column(name = "valorTotal")
+    private BigDecimal valorTotal;
+    
     private List<ItemCompra> itensCompra;
 
     public Compra() {
 
     }
 
-    public Compra(Long id, Date dtCompra, Usuario usuario) {
-        this.id = id;
+    public Compra(Long id, Date dtCompra, Usuario usuario) {       
+        
+        this.id = id;        
         this.dtCriacao = new Date();
         this.dtCompra = dtCompra;
         this.usuario = usuario;
@@ -86,6 +91,34 @@ public class Compra implements Serializable {
     @Override
     public String toString() {
         return "Compra{" + "id=" + id + ", dtCompra=" + dtCompra + ", usuario=" + usuario + ", itensCompra=" + itensCompra + '}';
+    }
+
+    /**
+     * @return the idUsuario
+     */
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    /**
+     * @param idUsuario the idUsuario to set
+     */
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    /**
+     * @return the valorTotal
+     */
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    /**
+     * @param valorTotal the valorTotal to set
+     */
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
 }

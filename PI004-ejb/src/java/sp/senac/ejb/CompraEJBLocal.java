@@ -6,12 +6,14 @@
 package sp.senac.ejb;
 
 import javax.ejb.Local;
+import sp.senac.entidades.Compra;
+
 
 /**
  *
- * @author Andre
+ * @author temp.cas
  */
 @Local
-public interface CompraBeanLocal {
-    
+public interface CompraEJBLocal {
+    public void registrarCompra(Compra compra);
 }

@@ -109,4 +109,5 @@ public class ProdutoBean {
         ProdutoService service = new ProdutoServiceJPAImpl();
         return service.obter(idProduto);
     }
+    
 }
