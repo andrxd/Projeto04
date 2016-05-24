@@ -12,6 +12,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import sp.senac.ejb.ProdutoEJBLocal;
 import sp.senac.entidades.Produto;
 
@@ -20,7 +21,7 @@ import sp.senac.entidades.Produto;
  * @author Andre
  */
 @ManagedBean
-@RequestScoped
+@RequestScoped 
 public class ProdutoBean {
 
     private Produto produto;
@@ -37,7 +38,9 @@ public class ProdutoBean {
     public Produto getProduto() {
         //Produto teste = obterProduto(getIdProduto());
         //prodTeste = produto;
-        return obterProduto(getIdProduto());
+        this.produto = obterProduto(getIdProduto());
+        System.out.println("getProduto() " + produto.toString());
+        return this.produto;
     }
 
     public void setProduto(Produto produto) {

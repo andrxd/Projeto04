@@ -55,6 +55,8 @@ public class CompraBean implements Serializable {
     
     private Date data = new Date();
     
+    private Long idProdutoTemp;
+    
     @EJB
     private CompraEJBLocal compraEJB;
     
@@ -74,11 +76,20 @@ public class CompraBean implements Serializable {
 
     public String adicionarProduto(long idProduto, int quantidade) {
     // obter objeto produto a partir do id
+        long id = 0L;
+        if (idProduto == 0L)  {
+               System.out.println("id produto temp: " + String.valueOf(idProduto));
+            id = getIdProdutoTemp();
+        } else {
+               System.out.println("id produto do param: " + String.valueOf(idProduto));
+               id = idProduto;
+        }
+        
 
         Produto prod = new Produto();
         int qtd = 1; 
         ProdutoService prodService = new ProdutoServiceJPAImpl();
-        Produto p = prodService.obter(idProduto);
+        Produto p = prodService.obter(id);
 
         ProdutoQuantidade pq = obterItem(p);
         if (pq == null) {
@@ -156,5 +167,19 @@ public class CompraBean implements Serializable {
      */
     public void setData(Date data) {
         this.data = data;
+    }
+
+    /**
+     * @return the idProdutoTemp
+     */
+    public Long getIdProdutoTemp() {
+        return idProdutoTemp;
+    }
+
+    /**
+     * @param idProdutoTemp the idProdutoTemp to set
+     */
+    public void setIdProdutoTemp(Long idProdutoTemp) {
+        this.idProdutoTemp = idProdutoTemp;
     }
 }

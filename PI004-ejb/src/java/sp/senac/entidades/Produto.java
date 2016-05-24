@@ -167,4 +167,10 @@ public class Produto implements Serializable {
         this.imgCaminho = imgCaminho;
     }
 
+    @Override
+    public String toString() {
+        return "Produto{" + "id=" + id + ", codProduto=" + codProduto + ", nomeProduto=" + nomeProduto + ", descricaoProduto=" + descricaoProduto + ", valorProduto=" + valorProduto + ", fabricanteProduto=" + fabricanteProduto + ", plataformaProduto=" + plataformaProduto + ", qtdProduto=" + qtdProduto + ", fxEtariaProduto=" + fxEtariaProduto + ", categoriaProduto=" + categoriaProduto + ", imgCaminho=" + imgCaminho + ", dtCadastroProduto=" + dtCadastroProduto + '}';
+    }
+
+    
 }
