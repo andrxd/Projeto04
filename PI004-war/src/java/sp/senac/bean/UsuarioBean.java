@@ -32,8 +32,9 @@ public class UsuarioBean {
     public String cadastrar() {
 
         usuarioEJB.cadastrar(usuario);
-
-        return "index";
+        
+  
+        return "cadastroSucesso.xhtml";
     }
 
     public void listarTodosUsuarios() {

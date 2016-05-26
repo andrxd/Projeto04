@@ -64,6 +64,17 @@ public class Produto implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dtCadastroProduto;
     
+    @Column(name="linkVideo")
+    private  String linkVideo;
+
+    public String getLinkVideo() {
+        return linkVideo;
+    }
+
+    public void setLinkVideo(String linkVideo) {
+        this.linkVideo = linkVideo;
+    }
+    
     
 
     //private List<ImagemProduto> img;

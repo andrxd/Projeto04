@@ -38,12 +38,18 @@ public class ProdutoQuantidade implements Serializable {
   private Produto produto;
   private int quantidade;
   private Date dtInclusao;
+  private  BigDecimal result;
 
   public ProdutoQuantidade(Produto produto, int quantidade) {
     this.produto = produto;
     this.quantidade = quantidade;
     this.dtInclusao = new Date();
   }
+  
+  public void calcular(){
+      result = produto.getValorProduto().multiply(new BigDecimal(quantidade));
+  } 
+  
   
   public BigDecimal getPreco() {
     // Preco * quantidade
@@ -87,6 +93,14 @@ public class ProdutoQuantidade implements Serializable {
     }
     return true;
   }
+
+    public BigDecimal getResult() {
+        return result;
+    }
+
+    public void setResult(BigDecimal result) {
+        this.result = result;
+    }
   
   
   

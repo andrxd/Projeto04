@@ -2,53 +2,119 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-         xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
+             <style>
+         .bt{
+             width: 220px;
+             margin-top:10px;
+         }         
+         
+.span3{width:220px;}
+        
+@-ms-viewport{width:device-width;}.hidden{display:none;visibility:hidden;}
+.visible-phone{display:none !important;}
+.visible-tablet{display:none !important;}
+.hidden-desktop{display:none !important;}
+.visible-desktop{display:inherit !important;}
+@media (min-width:768px) and (max-width:979px){
+    .hidden-desktop{display:inherit !important;} 
+    .visible-desktop{display:none !important ;} 
+    .visible-tablet{display:inherit !important;} 
+    .hidden-tablet{display:none !important;}}
+@media (max-width:767px){.hidden-desktop{display:inherit !important;} 
+                         .visible-desktop{display:none !important;} 
+                         .visible-phone{display:inherit !important;} 
+                         .hidden-phone{display:none !important;}}
+.visible-print{display:none !important;}
+@media print{.visible-print{display:inherit !important;} 
+             .hidden-print{display:none !important;}}
+@media (max-width:767px){body{padding-left:20px;padding-right:20px;} 
+                         .navbar-fixed-top,
+                         .navbar-fixed-bottom,
+                         .navbar-static-top{margin-left:-20px;margin-right:-20px;} 
+                         .container-fluid{padding:0;} 
+                         .dl-horizontal dt{float:none;clear:none;width:auto;text-align:left;} 
+                         .dl-horizontal dd{margin-left:0;} .container{width:auto;} 
+                         .row-fluid{width:100%;} .row,.thumbnails{margin-left:0;} 
+                         .thumbnails>li{float:none;margin-left:0;} [class*="span"],
+                         .uneditable-input[class*="span"],.row-fluid [class*="span"]
+                         {float:none;display:block;width:100%;margin-left:0;
+                          -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;} 
+                         .span12,.row-fluid .span12{width:100%;-webkit-box-sizing:border-box;
+                                                    -moz-box-sizing:border-box;box-sizing:border-box;} 
+                         .row-fluid [class*="offset"]:first-child{margin-left:0;} 
+                         .input-large,.input-xlarge,.input-xxlarge,input[class*="span"],select[class*="span"],textarea[class*="span"],.uneditable-input{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;} .input-prepend input,.input-append input,.input-prepend input[class*="span"],
+                         .input-append input[class*="span"]{display:inline-block;width:auto;} .controls-row [class*="span"]+[class*="span"]{margin-left:0;} .modal{position:fixed;top:20px;left:20px;right:20px;width:auto;margin:0;}.modal.fade{top:-100px;} .modal.fade.in{top:20px;}}@media (max-width:480px){.nav-collapse{-webkit-transform:translate3d(0, 0, 0);} .page-header h1 small{display:block;line-height:20px;} input[type="checkbox"],input[type="radio"]{border:1px solid #ccc;} 
+                                                  .form-horizontal .control-label{float:none;width:auto;padding-top:0;text-align:left;} .form-horizontal .controls{margin-left:0;} .form-horizontal .control-list{padding-top:0;} .form-horizontal .form-actions{padding-left:10px;padding-right:10px;} 
+                                                  .media .pull-left,.media .pull-right{float:none;display:block;margin-bottom:10px;} 
+                                                  .media-object{margin-right:0;margin-left:0;} .modal{top:10px;left:10px;right:10px;} 
+                                                  .modal-header .close{padding:10px;margin:-10px;} .carousel-caption{position:static;}}
+                         
+         </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     </h:head>
     <h:body>
+        
+          <!--Importanto Cabeçalho-->
+        <ui:include src="cabecalho.xhtml"/>
+
+         <!--Importanto Menus-->
+        <ui:include src="menu.xhtml"/>
+        
+        
+        <div class="span3">
+        
         <h:form id="cadastrarCliente">
              
-            <h:panelGrid columns="2">
+           
+                <h:outputLabel value="Caminho IMG"/>
+                <p:inputText value="#{novoProdutoBean.produto.imgCaminho}" class="span3" />
                 
-                <h:outputLabel value="ID"/>
-                <p:inputText value="#{produtoBean.produto.imgCaminho}" />
+                <h:outputLabel value="Link Video"/>
+                <p:inputText value="#{novoProdutoBean.produto.linkVideo}" class="span3" />
                 
                 <h:outputLabel value="Categoria Produto"/>
-                <p:inputText value="#{produtoBean.produto.categoriaProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.categoriaProduto}" class="span3"/>
                 
                 <h:outputLabel value="Cod.Produto"/>
-                <p:inputText value="#{produtoBean.produto.codProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.codProduto}" class="span3"/>
                 
                 <h:outputLabel value="Descricao"/>
-                <p:inputText value="#{produtoBean.produto.descricaoProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.descricaoProduto}" class="span3"/>
                 
                 <h:outputLabel value="Data Cadastro"/>
-                <p:inputText value="#{produtoBean.produto.dtCadastroProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.dtCadastroProduto}" class="span3"/>
                 
                 <h:outputLabel value="Fabricante"/>
-                <p:inputText value="#{produtoBean.produto.fabricanteProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.fabricanteProduto}" class="span3"/>
                 
                 <h:outputLabel value="FxEtaria"/>
-                <p:inputText value="#{produtoBean.produto.fxEtariaProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.fxEtariaProduto}" class="span3"/>
                 
                 <h:outputLabel value="Nome Produto"/>
-                <p:inputText value="#{produtoBean.produto.nomeProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.nomeProduto}" class="span3"/>
                 
                 <h:outputLabel value="Plataforma"/>
-                <p:inputText value="#{produtoBean.produto.plataformaProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.plataformaProduto}" class="span3"/>
                 
                 <h:outputLabel value="QTD"/>
-                <p:inputText value="#{produtoBean.produto.qtdProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.qtdProduto}" class="span3"/>
                 
                 <h:outputLabel value="Valor"/>
-                <p:inputText value="#{produtoBean.produto.valorProduto}" />
+                <p:inputText value="#{novoProdutoBean.produto.valorProduto}" class="span3"/>
                 
-                <h:commandButton action="#{produtoBean.cadastrar()}" value="Cadastrar"/>
+                <h:commandButton class="bt span3" action="#{novoProdutoBean.cadastrar()}" value="Cadastrar"/>
 
-            </h:panelGrid>
+          
             
         </h:form> 
+        
+        </div>
+            
     </h:body>
 </html>
 

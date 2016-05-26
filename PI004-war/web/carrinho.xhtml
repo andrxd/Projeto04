@@ -71,44 +71,55 @@
                 <tbody>
                     <ui:repeat value="#{compraBean.itens}" var="item">
                         <h:form id="form">
-                        <tr>
-                            <td data-th="Product">
-                                <div class="row">
+                            <tr>
+                                <td data-th="Product">
+                                    <div class="row">
 
-                                    <div class="col-sm-2 hidden-xs"><img src="#{item.produto.imgCaminho}" alt="..." class="img-responsive"/></div>
-                                    <div class="col-sm-10">
-                                        <h4 class="nomargin">#{item.produto.nomeProduto}</h4>
-                                        <p>#{item.produto.fabricanteProduto}</p>
+                                        <div class="col-sm-2 hidden-xs"><img src="#{item.produto.imgCaminho}" alt="..." class="img-responsive"/></div>
+                                        <div class="col-sm-10">
+                                            <h4 class="nomargin">#{item.produto.nomeProduto}</h4>
+                                            <p>#{item.produto.fabricanteProduto}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td data-th="Price" id="result">R$#{item.produto.valorProduto}</td>
-                            <td data-th="Quantity">
-                               
-                                
-                                    <p:inputText type="number" id="result" class="form-control text-center" value="#{item.quantidade}">
-                                        
+                                </td>
+                                <td data-th="Price" >R$#{item.produto.valorProduto}</td>
+                                <td data-th="Quantity">
+
+
+                                    <p:inputText type="number"  class="form-control text-center" value="#{item.quantidade}">
+
                                     </p:inputText>
-                                 
-                                
-                            </td>
-                            <td data-th="Subtotal" id="result" class="text-center">R$#{item.preco}</td>
-                            <td class="actions" data-th="">
-                            <h:commandButton class="btn btn-info btn-sm" value="=" action="#{item.quantidade}">
-                            <f:ajax execute="@form" render="form:result" />
-                            </h:commandButton>
-                                
-                                
-                            <!--<h:commandButton class="btn btn-danger btn-sm" value="=" /> -->   
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
-                            </td>
-                        </tr>
+
+
+                                </td>
+                                    <td data-th="Subtotal" id="result" class="text-center"> <h:panelGroup id="result">
+                                    <h:outputText value="R$#{item.result}"
+                                  rendered="#{item.result != null}" />
+                </h:panelGroup></td>
+                                    <td class="actions" data-th="">
+                      
+                  
+                                        
+                                        
+                                    <h:commandButton class="btn btn-info btn-sm" value="=" action="#{item.calcular}">
+                                        <f:ajax execute="@form" render="form:result" />
+                                        
+                                    </h:commandButton>
+
+
+                                    <!--<h:commandButton class="btn btn-danger btn-sm" value="=" /> -->   
+                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                                </td>
+                            </tr>
                         </h:form> 
                     </ui:repeat>
                 </tbody>
                 <tfoot>
+                  
                     <tr class="visible-xs">
+                         <h:form id="form2">
                         <td class="text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
+                         </h:form>
                     </tr>
                     <tr>
 
@@ -122,10 +133,10 @@
                         <td colspan="2" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
                         <td>
-                            
-<h:form>
-	<h:commandButton action="#{compraBean.registrarCompra(usuarioBean.usuario.id)}" styleClass="btn btn-success btn-lg btn-block"  value="Finalizar Compra" />
-</h:form>
+
+                            <h:form>
+                                <h:commandButton action="#{compraBean.registrarCompra(usuarioBean.usuario.id)}" styleClass="btn btn-success btn-lg btn-block"  value="Finalizar Compra" />
+                            </h:form>
                         </td>
                     </tr>
                 </tfoot>
