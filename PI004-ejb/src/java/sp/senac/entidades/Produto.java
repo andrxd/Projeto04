@@ -8,6 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -58,14 +61,14 @@ public class Produto implements Serializable {
     @Column(name = "categoriaProduto") //DEFINE QUE A VARIAVEL VAI BUSCAR O NOME DA COLUNA NO BANCO 
     private String categoriaProduto;
 
-    @Column(name="imgCaminho")
-    private  String imgCaminho;
-    
+    @Column(name = "imgCaminho")
+    private String imgCaminho;
+
     @Temporal(TemporalType.DATE)
     private Date dtCadastroProduto;
-    
-    @Column(name="linkVideo")
-    private  String linkVideo;
+
+    @Column(name = "linkVideo")
+    private String linkVideo;
 
     public String getLinkVideo() {
         return linkVideo;
@@ -74,8 +77,6 @@ public class Produto implements Serializable {
     public void setLinkVideo(String linkVideo) {
         this.linkVideo = linkVideo;
     }
-    
-    
 
     //private List<ImagemProduto> img;
     public Produto() {
@@ -183,5 +184,10 @@ public class Produto implements Serializable {
         return "Produto{" + "id=" + id + ", codProduto=" + codProduto + ", nomeProduto=" + nomeProduto + ", descricaoProduto=" + descricaoProduto + ", valorProduto=" + valorProduto + ", fabricanteProduto=" + fabricanteProduto + ", plataformaProduto=" + plataformaProduto + ", qtdProduto=" + qtdProduto + ", fxEtariaProduto=" + fxEtariaProduto + ", categoriaProduto=" + categoriaProduto + ", imgCaminho=" + imgCaminho + ", dtCadastroProduto=" + dtCadastroProduto + '}';
     }
 
-    
+    @ManyToMany
+    @JoinTable(name = "ITEMCOMPRA",
+            joinColumns = @JoinColumn(name = "PRODUTO_ID"),
+            inverseJoinColumns = @JoinColumn(name = "COMPRA_ID"))
+    private List<Compra> compras;
+
 }
