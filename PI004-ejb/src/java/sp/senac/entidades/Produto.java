@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -28,10 +29,12 @@ import javax.persistence.TemporalType;
             query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto)"),
     @NamedQuery(name = "produto.obterProduto",//NOME DA QUERY
             query = "select p from Produto p where p.id = :idProduto")})
+
 public class Produto implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_PRODUTO")
     private int id;
 
     @Column(name = "codProduto") //DEFINE QUE A VARIAVEL VAI BUSCAR O NOME DA COLUNA NO BANCO 
@@ -190,4 +193,5 @@ public class Produto implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "COMPRA_ID"))
     private List<Compra> compras;
 
+    
 }

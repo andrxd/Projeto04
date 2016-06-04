@@ -34,8 +34,9 @@ import javax.persistence.TemporalType;
                 query = "select u from Usuario u where UPPER(u.login) = UPPER(:login) and u.senha = :senha"))
 public class Usuario implements Serializable{
     
-    @Id 
-    @GeneratedValue  
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_PRODUTO")
     private int id;
     
     @Column(name="Nome")

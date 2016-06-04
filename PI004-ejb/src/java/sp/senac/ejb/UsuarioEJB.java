@@ -25,6 +25,7 @@ public class UsuarioEJB implements UsuarioEJBLocal {
     @Override
     public void cadastrar(Usuario usuario) {
         em.persist(usuario);
+        
     }
 
     @Override

@@ -9,6 +9,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import sp.senac.ejb.UsuarioEJBLocal;
 import sp.senac.entidades.Usuario;
@@ -19,13 +20,14 @@ import sp.senac.entidades.Usuario;
  */
 @ManagedBean
 @SessionScoped
-public class UsuarioBean {
 
-    private Usuario usuario;
+public class NovoUsuarioBean {
+
+  private Usuario usuario;
     @EJB
     private UsuarioEJBLocal usuarioEJB;
 
-    public UsuarioBean() {
+    public NovoUsuarioBean() {
         usuario = new Usuario();
     }
 
