@@ -19,7 +19,6 @@ import sp.senac.entidades.Usuario;
  * @author Andre
  */
 @ManagedBean
-@SessionScoped
 
 public class NovoUsuarioBean {
 
