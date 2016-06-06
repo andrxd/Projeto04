@@ -27,9 +27,9 @@
         
         
     </navigation-rule>
-    <!--<lifecycle>
+    <lifecycle>
     <phase-listener>
         sp.senac.listener.AutorizacaoListener
     </phase-listener>
-  </lifecycle>-->
+  </lifecycle>
 </faces-config>
