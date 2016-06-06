@@ -38,7 +38,7 @@ public class AutorizacaoListener implements PhaseListener {
       }
       if (!verificarAcesso(usuarioBean.getUsuario().getTipo(), paginaAtual)) {
         nh.handleNavigation(facesContext, null,
-                "/erroNaoAutorizado.xhtml?faces-redirect=true");
+                "/login.xhtml?faces-redirect=true");
         return;
       }
       // Se chegou nesse ponto da execução, JSF prossegue com
