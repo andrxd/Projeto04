@@ -12,12 +12,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
+import sp.senac.bean.UsuarioBean;
+import sp.senac.entidades.Usuario;
 
-/**
- *
- * @author fernando.tsuda
- */
-/*
+
 public class AutorizacaoListener implements PhaseListener {
 
   @Override
@@ -38,7 +36,7 @@ public class AutorizacaoListener implements PhaseListener {
                 "/login.xhtml?faces-redirect=true");
         return;
       }
-      if (!verificarAcesso(usuarioBean.getUsuario(), paginaAtual)) {
+      if (!verificarAcesso(usuarioBean.getUsuario().getTipo(), paginaAtual)) {
         nh.handleNavigation(facesContext, null,
                 "/erroNaoAutorizado.xhtml?faces-redirect=true");
         return;
@@ -48,13 +46,13 @@ public class AutorizacaoListener implements PhaseListener {
     }
   }
   
-  private static boolean verificarAcesso(UsuarioSistema usuario, 
+  private static boolean verificarAcesso(String tipoUsuario, 
           String pagina) {
     if (pagina.lastIndexOf("produto-form.xhtml") > -1 &&
-            usuario.autorizado("ADMIN")) {
+             tipoUsuario == "ADMIN") {
       return true;
     } else if (pagina.lastIndexOf("pagina-admin.xhtml") > -1 &&
-            usuario.autorizado("ADMIN")) {
+            tipoUsuario == "ADMIN") {
       return true;
     }
     return false;
@@ -71,4 +69,3 @@ public class AutorizacaoListener implements PhaseListener {
   }
   
 }
-*/
