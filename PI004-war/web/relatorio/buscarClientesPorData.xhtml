@@ -13,6 +13,7 @@
                 <h:outputLabel value="Nome Produto"></h:outputLabel>
                 
                 <h:inputText value="#{produtoBean.nomeProduto}" />
+                
                 <h:commandButton action="#{produtoBean.recuperarProdutosNome()}" value="Buscar">
                 <f:ajax execute="@form" render="form:result" />
                 </h:commandButton>

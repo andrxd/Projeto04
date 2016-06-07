@@ -29,8 +29,12 @@ public class ProdutoBean {
     private Produto prodTeste;
     @EJB
     private ProdutoEJBLocal produtoEJB;
+    
+    @ManagedProperty(value = "#{param.nomeProduto}")
     private String nomeProduto;
+    
     private List<Produto> listaProdutos;
+    private String nomeBuscar; 
 
     @ManagedProperty(value = "#{param.id}")
     private Long idProduto;
@@ -81,6 +85,10 @@ public class ProdutoBean {
     public void recuperarProdutosNome() {
         listaProdutos = produtoEJB.buscarPorNomeProduto(nomeProduto);
     }
+    
+    public List<Produto> listarProdutosNome() {     
+        return produtoEJB.buscarPorNomeProduto(nomeProduto);
+    }
 
     public List<Produto> getListaProduto() {
         return listaProdutos;
@@ -111,6 +119,30 @@ public class ProdutoBean {
     public Produto obter(long idProduto) {
         ProdutoService service = new ProdutoServiceJPAImpl();
         return service.obter(idProduto);
+    }
+
+    public Produto getProdTeste() {
+        return prodTeste;
+    }
+
+    public void setProdTeste(Produto prodTeste) {
+        this.prodTeste = prodTeste;
+    }
+
+    public List<Produto> getListaProdutos() {
+        return listaProdutos;
+    }
+
+    public void setListaProdutos(List<Produto> listaProdutos) {
+        this.listaProdutos = listaProdutos;
+    }
+
+    public String getNomeBuscar() {
+        return nomeBuscar;
+    }
+
+    public void setNomeBuscar(String nomeBuscar) {
+        this.nomeBuscar = nomeBuscar;
     }
     
 }
