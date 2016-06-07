@@ -43,6 +43,7 @@ import sp.senac.ejb.ProdutoEJBLocal;
 import sp.senac.entidades.Compra;
 import sp.senac.entidades.Produto;
 import sp.senac.entidades.ProdutoQuantidade;
+import sp.senac.bean.UsuarioBean;
 
 /**
  *
@@ -131,14 +132,23 @@ public class CompraBean implements Serializable {
     }
     
     public String registrarCompra(int idUsuario){
-        Compra compra = new Compra();
+        
+        
         Date dt = new Date();
         compra.setIdUsuario(idUsuario);
         compra.setDataCompra(dt);
         compra.setValorTotal(getValorTotal());
         
-        compraEJB.registrarCompra(compra);
-        return "finalizarCompra.xhtml?faces-redirect=true";
+        
+        if (idUsuario != 0) {
+            compraEJB.registrarCompra(compra);
+            return "finalizarCompra.xhtml?faces-redirect=true";
+        }
+        else
+        return "login.xhtml?faces-redirect=true";
+        
+        
+        
     }
 
     /**
