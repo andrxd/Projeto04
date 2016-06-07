@@ -87,23 +87,27 @@
 
 
                                     <p:inputText type="number"  class="form-control text-center" value="#{item.quantidade}">
-
+                                    <f:ajax  execute="@form" event="blur" listener="#{item.calcular}" render="form:result" />
+                                   
                                     </p:inputText>
 
 
                                 </td>
-                                    <td data-th="Subtotal" id="result" class="text-center"> <h:panelGroup id="result">
+                                
+                                    <td data-th="Subtotal" id="result" class="text-center"> 
+                                    <h:panelGroup id="result">
+                                    
                                     <h:outputText value="R$#{item.result}"
-                                  rendered="#{item.result != null}" />
-                </h:panelGroup></td>
-                                    <td class="actions" data-th="">
+                                    rendered="#{item.result != null}" />
+                                   
+                                    </h:panelGroup></td>
+                                    
+                                <td class="actions" data-th="">
                       
                   
                                         
                                         
                                     <h:commandButton class="btn btn-info btn-sm" value="=" action="#{item.calcular}">
-                                        <f:ajax execute="@form" render="form:result" />
-                                        
                                     </h:commandButton>
 
 
@@ -117,7 +121,7 @@
                 <tfoot>
                   
                     <tr class="visible-xs">
-                         <h:form id="form2">
+                         <h:form id="result2">
                         <td class="text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
                          </h:form>
                     </tr>
@@ -133,7 +137,9 @@
                         <td colspan="2" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
                         <td>
-
+                          
+                            
+                            
                             <h:form>
                                 <h:commandButton action="#{compraBean.registrarCompra(usuarioBean.usuario.id)}" styleClass="btn btn-success btn-lg btn-block"  value="Finalizar Compra" />
                             </h:form>
