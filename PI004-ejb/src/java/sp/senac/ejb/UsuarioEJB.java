@@ -27,6 +27,12 @@ public class UsuarioEJB implements UsuarioEJBLocal {
         em.persist(usuario);
         
     }
+    
+    @Override
+    public void alterar(Usuario usuario) {
+        em.merge(usuario);
+        
+    }
 
     @Override
     public List<Usuario> buscarUsuarios() {

@@ -17,6 +17,9 @@ import sp.senac.entidades.Usuario;
 public interface UsuarioEJBLocal {
     
     public void cadastrar(Usuario usuario);
+    
+    public void alterar(Usuario usuario);
+    
     public List<Usuario> buscarUsuarios();
     
     public Usuario autenticarUsuario(String login, String senha);

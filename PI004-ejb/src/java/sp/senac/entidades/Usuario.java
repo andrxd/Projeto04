@@ -36,7 +36,7 @@ public class Usuario implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_PRODUTO")
+    @Column(name = "ID_CLIENTE")
     private int id;
     
     @Column(name="Nome")
