@@ -85,8 +85,12 @@
                             <li><a href="login.xhtml">Login</a></li>
                         </c:if>
                         <li><a href="carrinho.xhtml">Carrinho</a></li>
-                        <li><a href="cadastrarCliente.xhtml">Cadastre-se</a></li>
-
+                        <c:if test="#{usuarioBean.usuario.nome == null}">
+                            <li><a href="cadastrarCliente.xhtml">Cadastre-se</a></li>
+                        </c:if>
+                        <c:if test="#{usuarioBean.usuario.nome != null}">
+                            <li><a href="alterarCliente.xhtml">Alterar Cadastro</a></li>
+                        </c:if>
 
                     </ul>
                 </div><!-- /.navbar-collapse -->
