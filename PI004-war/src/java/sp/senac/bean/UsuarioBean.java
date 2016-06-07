@@ -37,6 +37,15 @@ public class UsuarioBean {
         
         return "cadastroSucesso.xhtml";
     }
+    
+     public String alterar() {
+        
+        
+        usuarioEJB.alterar(usuario);
+        
+        
+        return "login.xhtml";
+    }
 
     public void listarTodosUsuarios() {
         usuarioEJB.buscarUsuarios();
