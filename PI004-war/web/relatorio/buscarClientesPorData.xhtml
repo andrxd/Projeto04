@@ -20,7 +20,17 @@
                 <p:dataTable var="produto" id="result" value="#{produtoBean.listaProduto}">
                     <p:column headerText="Nome">
                         <h:outputLabel value="#{produto.nomeProduto}"/>
-                    </p:column>                 
+                    </p:column> 
+                    <p:column headerText="Preço">
+                        <h:outputLabel value="#{produto.valorProduto}"/>
+                    </p:column> 
+                    <p:column headerText="Alterar">
+                    <h:outputLink value="detalheProduto.xhtml" styleClass="btn btn-default btn-block">
+                        <f:param name="id" value="#{produto.id}" />
+                     Ver detalhes
+                    </h:outputLink>
+
+                    </p:column> 
                 </p:dataTable>
                 
             </h:panelGrid>
