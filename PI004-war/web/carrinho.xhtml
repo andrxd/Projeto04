@@ -115,10 +115,13 @@
                                     <h:commandButton class="btn btn-info btn-sm" value="=" action="#{item.calcular}">
 
                                     </h:commandButton>
-
+                                    
+                                    <h:commandButton class="btn btn-danger btn-sm " value="X" action="#{compraBean.removerProduto(item.produto.id)}">
+                                        
+                                    </h:commandButton>
 
                                     <!--<h:commandButton class="btn btn-danger btn-sm" value="=" /> -->   
-                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                                    <!--<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button> -->
                                 </td>
                             </tr>
 
@@ -127,7 +130,6 @@
 
 
                         <tr class="visible-xs">
-
                             <h:panelGroup id="panelC">
                                 <td class="text-center"><strong>Total R$  <h:outputText value="#{compraBean.t}" /></strong></td>
                             </h:panelGroup>
@@ -145,9 +147,6 @@
                             <td colspan="2" class="hidden-xs"></td>
                             <td class="hidden-xs text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
                             <td>
-
-
-
 
                                 <h:commandButton action="#{compraBean.registrarCompra(usuarioBean.usuario.id)}" styleClass="btn btn-success btn-lg btn-block"  value="Finalizar Compra" />
 

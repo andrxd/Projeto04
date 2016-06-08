@@ -53,23 +53,22 @@ import sp.senac.bean.UsuarioBean;
 @SessionScoped
 public class CompraBean implements Serializable {
 
-    
     private Date data = new Date();
     private BigDecimal t;
-    
+
     private Long idProdutoTemp;
-    
+
     @EJB
     private CompraEJBLocal compraEJB;
-    
+
     private Set<ProdutoQuantidade> itens
             = new LinkedHashSet<ProdutoQuantidade>();
-    
+
     private Compra compra = new Compra();
-    
+
     private ProdutoQuantidade obterItem(Produto produto) {
         for (ProdutoQuantidade pq : itens) {
-            if (pq.getProduto().getId()==(produto.getId())) {
+            if (pq.getProduto().getId() == (produto.getId())) {
                 return pq;
             }
         }
@@ -77,19 +76,18 @@ public class CompraBean implements Serializable {
     }
 
     public String adicionarProduto(long idProduto, int quantidade) {
-    // obter objeto produto a partir do id
+        // obter objeto produto a partir do id
         long id = 0L;
-        if (idProduto == 0L)  {
-               System.out.println("id produto temp: " + String.valueOf(idProduto));
+        if (idProduto == 0L) {
+            System.out.println("id produto temp: " + String.valueOf(idProduto));
             id = getIdProdutoTemp();
         } else {
-               System.out.println("id produto do param: " + String.valueOf(idProduto));
-               id = idProduto;
+            System.out.println("id produto do param: " + String.valueOf(idProduto));
+            id = idProduto;
         }
-        
 
         Produto prod = new Produto();
-        int qtd = 1; 
+        int qtd = 1;
         ProdutoService prodService = new ProdutoServiceJPAImpl();
         Produto p = prodService.obter(id);
 
@@ -97,7 +95,7 @@ public class CompraBean implements Serializable {
         if (pq == null) {
             // Cria um novo item para o produto e quantidade informados
             itens.add(new ProdutoQuantidade(p, quantidade));
-           
+            
         } else {
             // Altera a quantidade informada do produto
             pq.getQuantidade();
@@ -106,13 +104,25 @@ public class CompraBean implements Serializable {
             pq.setQuantidade(qtd);
         }
 
-    // Mensagem de sucesso para usuário
+        // Mensagem de sucesso para usuário
         //Flash flash = FacesContext.getCurrentInstance()
         //        .getExternalContext().getFlash();
         //flash.put("mensagem", new Mensagem("Produto '" 
         //        + p.getNome() 
         //        + "' adicionado com sucesso", "success"));
         // Redireciona para tela de listagem de produtos
+        return "carrinho.xhtml?faces-redirect=true";
+    }
+
+    public String removerProduto(long idProduto) {
+        
+        for (ProdutoQuantidade pq : itens) {
+            if (pq.getProduto().getId() == (idProduto)) {
+                itens.remove(pq);
+            }
+        }
+        
+        
         return "carrinho.xhtml?faces-redirect=true";
     }
 
@@ -132,25 +142,21 @@ public class CompraBean implements Serializable {
         t = total;
         return total;
     }
-    
-    public String registrarCompra(int idUsuario){
-        
-        
+
+    public String registrarCompra(int idUsuario) {
+
         Date dt = new Date();
         compra.setIdUsuario(idUsuario);
         compra.setDataCompra(dt);
         compra.setValorTotal(getValorTotal());
-        
-        
+
         if (idUsuario != 0) {
             compraEJB.registrarCompra(compra);
             return "finalizarCompra.xhtml?faces-redirect=true";
+        } else {
+            return "login.xhtml?faces-redirect=true";
         }
-        else
-        return "login.xhtml?faces-redirect=true";
-        
-        
-        
+
     }
 
     /**
