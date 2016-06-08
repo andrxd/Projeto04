@@ -55,6 +55,7 @@ public class CompraBean implements Serializable {
 
     
     private Date data = new Date();
+    private BigDecimal t;
     
     private Long idProdutoTemp;
     
@@ -126,8 +127,9 @@ public class CompraBean implements Serializable {
     public BigDecimal getValorTotal() {
         BigDecimal total = new BigDecimal(0);
         for (ProdutoQuantidade pq : itens) {
-            total = total.add(pq.getPreco());
+            total = total.add(pq.getSubtotal());
         }
+        t = total;
         return total;
     }
     
@@ -191,5 +193,13 @@ public class CompraBean implements Serializable {
      */
     public void setIdProdutoTemp(Long idProdutoTemp) {
         this.idProdutoTemp = idProdutoTemp;
+    }
+
+    public BigDecimal getT() {
+        return t;
+    }
+
+    public void setT(BigDecimal t) {
+        this.t = t;
     }
 }

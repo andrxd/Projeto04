@@ -35,32 +35,32 @@
                             <ui:repeat value="#{produtoBean.listarTodosProdutos()}" var="prod">
                                 <div class="col-sm-4">                                    
                                     <div class="thumbnail">
-                                            <h:graphicImage value="#{prod.imgCaminho}" alt="" class="img-responsive" />
-                                            <div class="caption">
-                                                <!-- <ui:repeat value="" var="produto"> -->
-                                                <h4><h:outputText value="#{prod.nomeProduto}" /></h4>
-                                                <h3>
-                                                    <h:outputText value="R$#{prod.valorProduto}">
+                                        <h:graphicImage value="#{prod.imgCaminho}" alt="" class="img-responsive" />
+                                        <div class="caption">
+                                            <!-- <ui:repeat value="" var="produto"> -->
+                                            <h4><h:outputText value="#{prod.nomeProduto}" /></h4>
+                                            <h3>
+                                                <h:outputText value="R$#{prod.valorProduto}">
 
-                                                    </h:outputText>
-                                                </h3>
+                                                </h:outputText>
+                                            </h3>
 
-                                                <!--</ui:repeat>-->
+                                            <!--</ui:repeat>-->
 
 
-                                                <h:outputLink value="alterarProdutos.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
-                                                    <f:param name="id" value="#{prod.id}" />
-                                                    Ver detalhes
-                                                </h:outputLink>
-                                                        <p>
-                                                    <h:form prependId="false">
-                                                        <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-success btn-lg btn-block" pt:role="button" value="Comprar" />
-                                                    </h:form>
-                                                        </p>
+                                            <h:outputLink value="detalheProduto.xhtml" styleClass="btn btn-default btn-block" pt:role="button">
+                                                <f:param name="id" value="#{prod.id}" />
+                                                Ver detalhes
+                                            </h:outputLink>
+                                            <p>
+                                                <h:form prependId="false">
+                                                    <h:commandButton action="#{compraBean.adicionarProduto(prod.id, 1)}" styleClass="btn btn-success btn-lg btn-block" pt:role="button" value="Comprar" />
+                                                </h:form>
+                                            </p>
 
-                                            </div>
+                                        </div>
 
-                                        
+
 
                                     </div> 
                                 </div>

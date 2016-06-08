@@ -58,19 +58,23 @@
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
         <div class="container">
-            <table id="cart" class="table table-hover table-condensed">
-                <thead>
-                    <tr>
-                        <th style="width:50%">Produto</th>
-                        <th style="width:10%">Preço</th>
-                        <th style="width:8%">Quantidade</th>
-                        <th style="width:22%" class="text-center">Subtotal</th>
-                        <th style="width:10%"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <ui:repeat value="#{compraBean.itens}" var="item">
-                        <h:form id="form">
+            <h:form>
+
+                <table id="cart" class="table table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width:50%">Produto</th>
+                            <th style="width:10%">Preço</th>
+                            <th style="width:8%">Quantidade</th>
+                            <th style="width:22%" class="text-center">Subtotal</th>
+                            <th style="width:10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <ui:repeat value="#{compraBean.itens}" var="item">
+
                             <tr>
                                 <td data-th="Product">
                                     <div class="row">
@@ -87,27 +91,29 @@
 
 
                                     <p:inputText type="number"  class="form-control text-center" value="#{item.quantidade}">
-                                    <f:ajax  execute="@form" event="blur" listener="#{item.calcular}" render="form:result" />
-                                   
+                                        <f:ajax   event="blur" listener="#{item.calcular}" render="result" />
+                                        <f:ajax   event="valueChange" listener="#{item.calcular}" render="result" />
+
                                     </p:inputText>
 
 
                                 </td>
-                                
-                                    <td data-th="Subtotal" id="result" class="text-center"> 
+
+                                <td data-th="Subtotal" id="result" class="text-center"> 
                                     <h:panelGroup id="result">
-                                    
-                                    <h:outputText value="R$#{item.result}"
-                                    rendered="#{item.result != null}" />
-                                   
+
+                                        <h:outputText value="R$#{item.subtotal}"
+                                                      rendered="#{item.subtotal != null}" />
+
                                     </h:panelGroup></td>
-                                    
+
                                 <td class="actions" data-th="">
-                      
-                  
-                                        
-                                        
+
+
+
+
                                     <h:commandButton class="btn btn-info btn-sm" value="=" action="#{item.calcular}">
+
                                     </h:commandButton>
 
 
@@ -115,38 +121,44 @@
                                     <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
                                 </td>
                             </tr>
-                        </h:form> 
-                    </ui:repeat>
-                </tbody>
-                <tfoot>
-                  
-                    <tr class="visible-xs">
-                         <h:form id="result2">
-                        <td class="text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
-                         </h:form>
-                    </tr>
-                    <tr>
+
+                        </ui:repeat>
 
 
-                    </tr>
 
-                    <tr>
+                        <tr class="visible-xs">
+
+                            <h:panelGroup id="panelC">
+                                <td class="text-center"><strong>Total R$  <h:outputText value="#{compraBean.t}" /></strong></td>
+                            </h:panelGroup>
+
+                        </tr>
+                        <tr>
 
 
-                        <td><a href="listaProdutos.xhtml" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continuar Comprando </a></td>
-                        <td colspan="2" class="hidden-xs"></td>
-                        <td class="hidden-xs text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
-                        <td>
-                          
-                            
-                            
-                            <h:form>
+                        </tr>
+
+                        <tr>
+
+
+                            <td><a href="listaProdutos.xhtml" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continuar Comprando </a></td>
+                            <td colspan="2" class="hidden-xs"></td>
+                            <td class="hidden-xs text-center"><strong>Total R$#{compraBean.valorTotal}</strong></td>
+                            <td>
+
+
+
+
                                 <h:commandButton action="#{compraBean.registrarCompra(usuarioBean.usuario.id)}" styleClass="btn btn-success btn-lg btn-block"  value="Finalizar Compra" />
-                            </h:form>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
+
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </h:form>
         </div>
 
     </h:body>

@@ -28,6 +28,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Transient;
 import sp.senac.entidades.Produto;
 /**
  *
@@ -39,6 +40,9 @@ public class ProdutoQuantidade implements Serializable {
   private int quantidade;
   private Date dtInclusao;
   private  BigDecimal result;
+  //nao vai persist
+  @Transient
+  private BigDecimal subtotal;
 
   public ProdutoQuantidade(Produto produto, int quantidade) {
     this.produto = produto;
@@ -101,7 +105,15 @@ public class ProdutoQuantidade implements Serializable {
     public void setResult(BigDecimal result) {
         this.result = result;
     }
-  
+
+    public BigDecimal getSubtotal() {
+        return produto.getValorProduto().multiply(new BigDecimal(quantidade));
+    }
+
+    public void setSubtotal(BigDecimal subtotal) {
+        this.subtotal = subtotal;
+    }
+    
   
   
 
