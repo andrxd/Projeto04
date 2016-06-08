@@ -51,13 +51,13 @@ public class ProdutoQuantidade implements Serializable {
   }
   
   public void calcular(){
-      result = produto.getValorProduto().multiply(new BigDecimal(quantidade));
+      result = getProduto().getValorProduto().multiply(new BigDecimal(quantidade));
   } 
   
   
   public BigDecimal getPreco() {
     // Preco * quantidade
-    return produto.getValorProduto().multiply(new BigDecimal(quantidade));
+    return getProduto().getValorProduto().multiply(new BigDecimal(quantidade));
   }
 
   public Produto getProduto() {
@@ -79,7 +79,7 @@ public class ProdutoQuantidade implements Serializable {
   @Override
   public int hashCode() {
     int hash = 7;
-    hash = 67 * hash + Objects.hashCode(this.produto);
+    hash = 67 * hash + Objects.hashCode(this.getProduto());
     return hash;
   }
 
@@ -107,11 +107,18 @@ public class ProdutoQuantidade implements Serializable {
     }
 
     public BigDecimal getSubtotal() {
-        return produto.getValorProduto().multiply(new BigDecimal(quantidade));
+        return getProduto().getValorProduto().multiply(new BigDecimal(quantidade));
     }
 
     public void setSubtotal(BigDecimal subtotal) {
         this.subtotal = subtotal;
+    }
+
+    /**
+     * @param produto the produto to set
+     */
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
     
   
