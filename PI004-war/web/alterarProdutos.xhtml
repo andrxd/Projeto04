@@ -3,168 +3,162 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-        xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-     <title>Cadastrar Cliente</title>    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
-    <style type="text/css">
-        .row{
-            background-color:#fff;
-        }
-        
-        #wrap{
-background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-/* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-/* Opera */ 
-background-image: -o-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-/* W3C Markup, IE10 Release Preview */ 
-background-image: linear-gradient(to bottom, #FFFFFF 0%, #D3D8E8 100%);
-background-repeat: no-repeat;
-background-attachment: fixed;
-}
-legend{
-	color:#141823;
-	font-size:25px;
-	font-weight:bold;
-}
-.signup-btn {
-  background: #79bc64;
-  background-image: -webkit-linear-gradient(top, #79bc64, #578843);
-  background-image: -moz-linear-gradient(top, #79bc64, #578843);
-  background-image: -ms-linear-gradient(top, #79bc64, #578843);
-  background-image: -o-linear-gradient(top, #79bc64, #578843);
-  background-image: linear-gradient(to bottom, #79bc64, #578843);
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  text-shadow: 0px 1px 0px #898a88;
-  -webkit-box-shadow: 0px 0px 0px #a4e388;
-  -moz-box-shadow: 0px 0px 0px #a4e388;
-  box-shadow: 0px 0px 0px #a4e388;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  border: solid #3b6e22  1px;
-  text-decoration: none;
-}
+        <title>Cadastrar Cliente</title>    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <style type="text/css">
+            .row{
+                background-color:#fff;
+            }
 
-.signup-btn:hover {
-  background: #79bc64;
-  background-image: -webkit-linear-gradient(top, #79bc64, #5e7056);
-  background-image: -moz-linear-gradient(top, #79bc64, #5e7056);
-  background-image: -ms-linear-gradient(top, #79bc64, #5e7056);
-  background-image: -o-linear-gradient(top, #79bc64, #5e7056);
-  background-image: linear-gradient(to bottom, #79bc64, #5e7056);
-  text-decoration: none;
-}
+            #wrap{
+                background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+                /* Mozilla Firefox */ 
+                background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+                /* Opera */ 
+                background-image: -o-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+                /* Webkit (Safari/Chrome 10) */ 
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
+                /* Webkit (Chrome 11+) */ 
+                background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+                /* W3C Markup, IE10 Release Preview */ 
+                background-image: linear-gradient(to bottom, #FFFFFF 0%, #D3D8E8 100%);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+            legend{
+                color:#141823;
+                font-size:25px;
+                font-weight:bold;
+            }
+            .signup-btn {
+                background: #79bc64;
+                background-image: -webkit-linear-gradient(top, #79bc64, #578843);
+                background-image: -moz-linear-gradient(top, #79bc64, #578843);
+                background-image: -ms-linear-gradient(top, #79bc64, #578843);
+                background-image: -o-linear-gradient(top, #79bc64, #578843);
+                background-image: linear-gradient(to bottom, #79bc64, #578843);
+                -webkit-border-radius: 4;
+                -moz-border-radius: 4;
+                border-radius: 4px;
+                text-shadow: 0px 1px 0px #898a88;
+                -webkit-box-shadow: 0px 0px 0px #a4e388;
+                -moz-box-shadow: 0px 0px 0px #a4e388;
+                box-shadow: 0px 0px 0px #a4e388;
+                font-family: Arial;
+                color: #ffffff;
+                font-size: 20px;
+                padding: 10px 20px 10px 20px;
+                border: solid #3b6e22  1px;
+                text-decoration: none;
+            }
 
-.form .form-control { margin-bottom: 10px; }
-@media (min-width:768px) {
-	#home{
-		margin-top:50px;
-	}
-	#home .slogan{
-		color: #0e385f;
-		line-height: 29px;
-		font-weight:bold;
-	}
-}
-    </style>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+            .signup-btn:hover {
+                background: #79bc64;
+                background-image: -webkit-linear-gradient(top, #79bc64, #5e7056);
+                background-image: -moz-linear-gradient(top, #79bc64, #5e7056);
+                background-image: -ms-linear-gradient(top, #79bc64, #5e7056);
+                background-image: -o-linear-gradient(top, #79bc64, #5e7056);
+                background-image: linear-gradient(to bottom, #79bc64, #5e7056);
+                text-decoration: none;
+            }
+
+            .form .form-control { margin-bottom: 10px; }
+            @media (min-width:768px) {
+                #home{
+                    margin-top:50px;
+                }
+                #home .slogan{
+                    color: #0e385f;
+                    line-height: 29px;
+                    font-weight:bold;
+                }
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     </h:head>
     <h:body>
-        
-          <!--Importanto Cabeçalho-->
+
+        <!--Importanto Cabeçalho-->
         <ui:include src="cabecalho.xhtml"/>
 
-         <!--Importanto Menus-->
+        <!--Importanto Menus-->
         <ui:include src="menu.xhtml"/>
-        
-                  <div class="container" id="wrap">
+
+        <div class="container" id="wrap">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <h:form class="form" prependId="false">  
                         <legend>Preencher</legend>
 
                         <div class="row">
-                            
+
                             <div class="col-xs-6 col-md-12">
-                            <p:inputText value="#{produtoBean.produto.imgCaminho}" class="form-control input-lg" pt:placeholder="Img"/>
+                                <p:inputText value="#{produtoBean.produto.imgCaminho}" class="form-control input-lg" pt:placeholder="Img"/>
                             </div>
 
                             <div class="col-xs-6 col-md-6">
-                            <p:inputText value="#{produtoBean.produto.linkVideo}" class="form-control input-lg" pt:placeholder="Link Video"/>                       
+                                <p:inputText value="#{produtoBean.produto.linkVideo}" class="form-control input-lg" pt:placeholder="Link Video"/>                       
                             </div>
-                            
+
                             <div class="col-xs-6 col-md-6">
                                 <p:inputText value="#{produtoBean.produto.categoriaProduto}" class="form-control input-lg" pt:placeholder="Categoria"/>                       
                             </div>
-                           
+
                             <div class="col-xs-6 col-md-12">
                                 <p:inputText value="#{produtoBean.produto.codProduto}" class="form-control input-lg" pt:placeholder="Codigo"/>                                     
                             </div>
-                            
+
                             <div class="col-xs-6 col-md-12">
                                 <p:inputText value="#{produtoBean.produto.descricaoProduto}" class="form-control input-lg" pt:placeholder="Descrição"/>                          
                             </div>
-                            
-                       
+
+
                             <div class="col-xs-6 col-md-6">
                                 <p:inputText value="#{produtoBean.produto.fabricanteProduto}" class="form-control input-lg" pt:placeholder="Fabricante"/>                          
                             </div>
-                            
+
                             <!--<div class="col-xs-6 col-md-6">
                                 <p:inputText value="#{produtoBean.produto.dtCadastroProduto}" class="form-control input-lg" pt:placeholder="Data Cadastro"/>                          
                             </div>-->
-                           
-                     
+
+
                             <div class="col-xs-6 col-md-6">
                                 <p:inputText value="#{produtoBean.produto.fxEtariaProduto}" class="form-control input-lg" pt:placeholder="FxEtaria"/>                           
                             </div>
-                            
+
                             <div class="col-xs-6 col-md-6">
                                 <p:inputText value="#{produtoBean.produto.nomeProduto}" class="form-control input-lg" pt:placeholder="Nome Produto"/>                          
                             </div>
-                           
+
                             <div class="col-xs-6 col-md-6">
                                 <p:inputText value="#{produtoBean.produto.plataformaProduto}" class="form-control input-lg" pt:placeholder="Plataforma"/>                           
                             </div>
-                            
-                            
-                
+
+
+
                             <div class="col-xs-6 col-md-3">
                                 <p:inputText value="#{produtoBean.produto.qtdProduto}"  class="form-control input-lg" pt:placeholder="Qtd"/>                
                             </div>
-                            
+
                             <div class="col-xs-6 col-md-9">
                                 <p:inputText value="#{produtoBean.produto.valorProduto}" class="form-control input-lg" pt:placeholder="Valor R$"/>                       
                             </div>
                         </div>
-                     
 
-                 
-                        
-                       <h:commandButton class="btn btn-lg btn-primary btn-block signup-btn" action="#{produtoBean.alterar()}" value="Cadastrar">
-                        <f:param name="id" value="#{produtoBean.idProduto}" />
+
+
+
+                        <h:commandButton class="btn btn-lg btn-primary btn-block signup-btn" action="#{produtoBean.alterar()}" value="Cadastrar">
+                            <f:param name="id" value="#{produtoBean.produto.id}" />
                         </h:commandButton>
-               
-
-
                     </h:form>          
                 </div>
             </div>            
         </div>
-        
-        
-            
     </h:body>
 </html>
 

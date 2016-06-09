@@ -29,7 +29,9 @@ public class ProdutoEJB implements ProdutoEJBLocal {
     
     @Override
     public void alterar(Produto produto) {
-        em.merge(produto);       
+        em.merge(produto);   
+        
+        System.out.println("TESTE");
     }
     
     @Override
