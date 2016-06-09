@@ -30,20 +30,16 @@ public class UsuarioBean {
     }
 
     public String cadastrar() {
-        
-        
+
         usuarioEJB.cadastrar(usuario);
-        
-        
+
         return "cadastroSucesso.xhtml";
     }
-    
-     public String alterar() {
-        
-        
+
+    public String alterar() {
+
         usuarioEJB.alterar(usuario);
-        
-        
+
         return "login.xhtml";
     }
 
@@ -56,6 +52,7 @@ public class UsuarioBean {
 
     public String logout() {
         this.usuario = null;
+               
         // Se der erro
         FacesMessage msg = new FacesMessage("Usuário fez logout",
                 "INFO MSG");
@@ -65,16 +62,16 @@ public class UsuarioBean {
     }
 
     public String autenticarUsuario() {
-        try{
-        Usuario usuario = usuarioEJB.autenticarUsuario(login, senha);
-        if (usuario != null) {
-            this.usuario = usuario;
-            return "listaProdutos.xhtml?faces-redirect=true";
-        } 
-        }catch(Exception E){
-             return "login.xhtml?faces-redirect=true";  
+        try {
+            Usuario usuario = usuarioEJB.autenticarUsuario(login, senha);
+            if (usuario != null) {
+                this.usuario = usuario;
+                return "listaProdutos.xhtml?faces-redirect=true";
+            }
+        } catch (Exception E) {
+            return "login.xhtml?faces-redirect=true";
         }
-       return "0";
+        return "0";
     }
 
     public Usuario getUsuario() {

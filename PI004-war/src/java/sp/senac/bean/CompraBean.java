@@ -95,7 +95,7 @@ public class CompraBean implements Serializable {
         if (pq == null) {
             // Cria um novo item para o produto e quantidade informados
             itens.add(new ProdutoQuantidade(p, quantidade));
-            
+
         } else {
             // Altera a quantidade informada do produto
             pq.getQuantidade();
@@ -115,15 +115,18 @@ public class CompraBean implements Serializable {
     }
 
     public String removerProduto(long idProduto) {
-        
+
         for (ProdutoQuantidade pq : itens) {
             if (pq.getProduto().getId() == (idProduto)) {
                 itens.remove(pq);
             }
         }
-        
-        
+
         return "carrinho.xhtml?faces-redirect=true";
+    }
+
+    public void limparCarrinho() {
+       itens = new LinkedHashSet<ProdutoQuantidade>();
     }
 
     // Converte Set em List senao nao funciona no ui:repeat
@@ -152,7 +155,11 @@ public class CompraBean implements Serializable {
 
         if (idUsuario != 0) {
             compraEJB.registrarCompra(compra);
+
+            limparCarrinho();
+            compra = new Compra();
             return "finalizarCompra.xhtml?faces-redirect=true";
+
         } else {
             return "login.xhtml?faces-redirect=true";
         }
