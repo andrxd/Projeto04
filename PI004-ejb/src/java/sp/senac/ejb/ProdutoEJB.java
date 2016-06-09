@@ -28,6 +28,12 @@ public class ProdutoEJB implements ProdutoEJBLocal {
     }
     
     @Override
+    public void alterar(Produto produto) {
+        em.merge(produto);
+        
+    }
+    
+    @Override
     public List<Produto> buscarPorNomeProduto(String nome) {
         
         Query query = em.createNamedQuery("produto.buscarPorNomeProduto");
