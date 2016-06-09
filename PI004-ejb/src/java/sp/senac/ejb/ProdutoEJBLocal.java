@@ -23,4 +23,6 @@ public interface ProdutoEJBLocal {
     
     public Produto obterProduto(long id);
     
+     public void alterar(Produto produto);
+    
 }

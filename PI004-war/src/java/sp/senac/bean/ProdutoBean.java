@@ -77,6 +77,15 @@ public class ProdutoBean {
 
         return "index";
     }
+    
+     public String alterar() {
+        
+        
+        produtoEJB.alterar(produto);
+        
+        
+        return "login.xhtml";
+    }
 
     public List<Produto> listarTodosProdutos() {
         return produtoEJB.buscarTodosProdutos();
