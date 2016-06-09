@@ -7,6 +7,7 @@ package sp.senac.bean;
 
 import br.senac.tads.dsw.lojinha.common.service.ProdutoService;
 import br.senac.tads.dsw.lojinha.common.service.jpaimpl.ProdutoServiceJPAImpl;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -73,6 +74,9 @@ public class ProdutoBean {
 
     public String cadastrar() {
 
+        
+        produto.setDtCadastroProduto(new Date());
+        
         produtoEJB.cadastrar(produto);
 
         return "index";
