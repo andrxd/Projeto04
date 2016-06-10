@@ -42,6 +42,17 @@ public class ProdutoEJB implements ProdutoEJBLocal {
         return query.getResultList();
         
     }
+    
+    @Override
+    public List<Produto> buscarProdutos(String nome,String plataformaProduto, String categoriaProduto) {
+        
+        Query query = em.createNamedQuery("produto.buscarProdutos");
+        query.setParameter("nomeProduto","%"+nome+"%");//NOME DA COLUNA QUE QUERO TRAZER
+        query.setParameter("plataformaProduto","%"+plataformaProduto+"%");//NOME DA COLUNA QUE QUERO TRAZER
+        query.setParameter("categoriaProduto","%"+categoriaProduto+"%");//NOME DA COLUNA QUE QUERO TRAZER
+        return query.getResultList();
+        
+    }
 
     @Override
     public List<Produto> buscarTodosProdutos() {

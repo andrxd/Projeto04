@@ -19,6 +19,8 @@ public interface ProdutoEJBLocal {
     
     public List<Produto> buscarPorNomeProduto(String nome);
     
+    public List<Produto> buscarProdutos(String nome,String plataformaProduto,String categoriaProduto);
+    
     public List<Produto> buscarTodosProdutos();
     
     public Produto obterProduto(long id);

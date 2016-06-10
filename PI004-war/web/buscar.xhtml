@@ -32,7 +32,7 @@
 
                     <div class="container-fluid">
                         <div class="row">
-                            <ui:repeat value="#{produtoBean.listarProdutosNome()}" var="prod">
+                            <ui:repeat value="#{produtoBean.buscarProdutos()}" var="prod">
                                 <div class="col-sm-4">                                    
                                     <div class="thumbnail">
                                             <h:graphicImage value="#{prod.imgCaminho}" alt="" class="img-responsive" />

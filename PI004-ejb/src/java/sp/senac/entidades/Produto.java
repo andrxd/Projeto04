@@ -28,7 +28,10 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "produto.buscarPorNomeProduto",//NOME DA QUERY
             query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto)"),
     @NamedQuery(name = "produto.obterProduto",//NOME DA QUERY
-            query = "select p from Produto p where p.id = :idProduto")})
+            query = "select p from Produto p where p.id = :idProduto"),
+    @NamedQuery(name = "produto.buscarProdutos",//NOME DA QUERY
+            query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto) and UPPER(p.plataformaProduto) LIKE UPPER(:plataformaProduto) and UPPER(p.categoriaProduto) LIKE UPPER(:categoriaProduto)")
+})
 
 public class Produto implements Serializable {
 
