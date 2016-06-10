@@ -10,6 +10,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import sp.senac.ejb.UsuarioEJBLocal;
 import sp.senac.entidades.Usuario;
 
@@ -38,9 +39,28 @@ public class UsuarioBean {
 
     public String alterar() {
 
+     
+        
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        
+        if(!usuario.getNome().equals("")){
         usuarioEJB.alterar(usuario);
+        flash.put("msg", "Produto Cadastrado com Sucesso");
+        flash.put("tipo","sucesso");
+        usuario = null;
+        
+        
+        }else{
+            
+        flash.put("msg", "Erro na Validação dos campos");
+        flash.put("tipo","erro");     
+        
+        
 
-        return "login.xhtml";
+       
+        
+    }
+         return "login.xhtml";
     }
 
     public void listarTodosUsuarios() {

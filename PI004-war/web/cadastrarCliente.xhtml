@@ -75,6 +75,18 @@
                     font-weight:bold;
                 }
             }
+            #msg > p{
+                        border: 1px solid white; padding: 10px 20px; text-align: center
+                         } 
+                         #msg > p.sucesso{
+                             color:#3b6e22;
+                             background-color: #a4e388 !important;
+                         }
+                         #msg > p.erro{
+                             color:#d43f3a;
+                             background-color: #fcc !important;
+                         }
+
         </style>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -94,6 +106,13 @@
                         <legend>Preencher</legend>
 
                         <div class="row">
+                            
+                        <div id="msg"> 
+                        <ui:fragment rendered="#{flash.msg !=null}">
+                            <p class="#{flash.tipo}">#{flash.msg}</p>
+                        </ui:fragment>
+                        </div>
+
 
                             <div class="col-xs-6 col-md-12">
                                 <p:inputText value="#{novoUsuarioBean.usuario.nome}" class="form-control input-lg" pt:placeholder="Nome"/>

@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import sp.senac.ejb.UsuarioEJBLocal;
 import sp.senac.entidades.Usuario;
 
@@ -33,10 +34,24 @@ public class NovoUsuarioBean {
     public String cadastrar() {
         
         
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        
+        if(!usuario.getNome().equals("")){
         usuarioEJB.cadastrar(usuario);
-        
-        
+        //flash.put("msg", "Contato Cadastrado com Sucesso");
+        //flash.put("tipo","sucesso");
+        usuario = null;
         return "cadastroSucesso.xhtml";
+        
+        }else{
+            
+        flash.put("msg", "Erro na Validação dos campos");
+        flash.put("tipo","erro");     
+        
+        }
+        
+        return "cadastroCliente.xhtml";
+
     }
 
     public void listarTodosUsuarios() {

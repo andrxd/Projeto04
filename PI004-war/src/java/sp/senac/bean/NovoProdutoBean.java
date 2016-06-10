@@ -12,6 +12,8 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 
 import sp.senac.ejb.ProdutoEJBLocal;
 import sp.senac.entidades.Produto;
@@ -52,10 +54,24 @@ public class NovoProdutoBean {
   
     public String cadastrar() {
 
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        
+        if(!produto.getNomeProduto().equals("")){
         produtoEJB.cadastrar(produto);
-
-        return "index";
+        flash.put("msg", "Produto Cadastrado com Sucesso");
+        flash.put("tipo","sucesso");
+        produto = null;
+        
+        
+        }else{
+            
+        flash.put("msg", "Erro na Validação dos campos");
+        flash.put("tipo","erro");     
+        
     }
-
+        return "index.xhtml";
+    
+    }
     
 }
+
