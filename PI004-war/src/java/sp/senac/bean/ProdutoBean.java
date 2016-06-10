@@ -34,10 +34,10 @@ public class ProdutoBean {
     @ManagedProperty(value = "#{param.nomeProduto}")
     private String nomeProduto;
     
-    @ManagedProperty(value = "#{param.plataformaProduto}")
+    @ManagedProperty(value = "#{param.platProd}")
     private String plataformaProduto;
     
-    @ManagedProperty(value = "#{param.categoriaProduto}")
+    @ManagedProperty(value = "#{param.catProd}")
     private String categoriaProduto;
     
     @ManagedProperty(value = "#{param.ord}")
