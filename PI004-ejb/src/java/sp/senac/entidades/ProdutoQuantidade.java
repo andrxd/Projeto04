@@ -23,80 +23,105 @@
  */
 package sp.senac.entidades;
 
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import sp.senac.entidades.Produto;
+
 /**
  *
  * @author fernando.tsuda
  */
+@Entity
+@Table(name = "ItemCompra")
 public class ProdutoQuantidade implements Serializable {
 
-  private Produto produto;
-  private int quantidade;
-  private Date dtInclusao;
-  private  BigDecimal result;
-  //nao vai persist
-  @Transient
-  private BigDecimal subtotal;
-
-  public ProdutoQuantidade(Produto produto, int quantidade) {
-    this.produto = produto;
-    this.quantidade = quantidade;
-    this.dtInclusao = new Date();
-  }
-  
-  public void calcular(){
-      result = getProduto().getValorProduto().multiply(new BigDecimal(quantidade));
-  } 
-  
-  
-  public BigDecimal getPreco() {
-    // Preco * quantidade
-    return getProduto().getValorProduto().multiply(new BigDecimal(quantidade));
-  }
-
-  public Produto getProduto() {
-    return produto;
-  }
-
-  public int getQuantidade() {
-    return quantidade;
-  }
-
-  public void setQuantidade(int quantidade) {
-    this.quantidade = quantidade;
-  }
-
-  public Date getDtInclusao() {
-    return dtInclusao;
-  }
-
-  @Override
-  public int hashCode() {
-    int hash = 7;
-    hash = 67 * hash + Objects.hashCode(this.getProduto());
-    return hash;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (obj == null) {
-      return false;
+    public ProdutoQuantidade() {
     }
-    if (getClass() != obj.getClass()) {
-      return false;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_ITEM")
+    private int id;
+
+    @Column(name = "QNT_ITEM")
+    private int quantidade;
+
+    @Column(name = "DT_ITEM")
+    @Temporal(TemporalType.DATE)
+    private Date dtInclusao;
+
+    @Column(name = "RESULT_ITEM")
+    private BigDecimal result;
+
+    @ManyToOne
+    private Compra compra;
+
+    private Produto produto;
+
+    public ProdutoQuantidade(Produto produto, int quantidade) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.dtInclusao = new Date();
     }
-    final ProdutoQuantidade other = (ProdutoQuantidade) obj;
-    if (!Objects.equals(this.produto, other.produto)) {
-      return false;
+
+    public void calcular() {
+        result = produto.getValorProduto().multiply(new BigDecimal(quantidade));
     }
-    return true;
-  }
+
+    public BigDecimal getSubtotal() {
+        // Preco * quantidade
+        return produto.getValorProduto().multiply(new BigDecimal(quantidade));
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Date getDtInclusao() {
+        return dtInclusao;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.produto);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ProdutoQuantidade other = (ProdutoQuantidade) obj;
+        if (!Objects.equals(this.produto, other.produto)) {
+            return false;
+        }
+        return true;
+    }
 
     public BigDecimal getResult() {
         return result;
@@ -106,22 +131,27 @@ public class ProdutoQuantidade implements Serializable {
         this.result = result;
     }
 
-    public BigDecimal getSubtotal() {
-        return getProduto().getValorProduto().multiply(new BigDecimal(quantidade));
+    public int getId() {
+        return id;
     }
 
-    public void setSubtotal(BigDecimal subtotal) {
-        this.subtotal = subtotal;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    /**
-     * @param produto the produto to set
-     */
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public void setDtInclusao(Date dtInclusao) {
+        this.dtInclusao = dtInclusao;
+    }
+
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-    
-  
-  
-
 }

@@ -148,10 +148,19 @@ public class CompraBean implements Serializable {
 
     public String registrarCompra(int idUsuario) {
 
+        List<ProdutoQuantidade> pqs = getItens();
+        
+        
+        
         Date dt = new Date();
         compra.setIdUsuario(idUsuario);
         compra.setDataCompra(dt);
         compra.setValorTotal(getValorTotal());
+        compra.setItensCompra(getItens());
+        
+        for(ProdutoQuantidade pq: pqs) {
+            pq.setCompra(compra);
+        }
 
         if (idUsuario != 0) {
             compraEJB.registrarCompra(compra);
