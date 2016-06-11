@@ -22,39 +22,41 @@ import sp.senac.entidades.Produto;
  * @author Andre
  */
 @ManagedBean
-@RequestScoped
-public class ProdutoBean {
+@ViewScoped
+public class AlterarProdutoBean {
     
-    private Produto produto;
+    private Produto produto = null;
     
     private Produto prodTeste;
     @EJB
     private ProdutoEJBLocal produtoEJB;
     
-    @ManagedProperty(value = "#{param.nomeProduto}")
+    //@ManagedProperty(value = "#{param.nomeProduto}")
     private String nomeProduto;
     
-    @ManagedProperty(value = "#{param.platProd}")
+    // @ManagedProperty(value = "#{param.platProd}")
     private String plataformaProduto;
     
-    @ManagedProperty(value = "#{param.catProd}")
+     //@ManagedProperty(value = "#{param.catProd}")
     private String categoriaProduto;
-    
-    @ManagedProperty(value = "#{param.ord}")
+            
+     //@ManagedProperty(value = "#{param.ord}")
     private String ord;
+    
     
     private List<Produto> listaProdutos;
     private String nomeBuscar;
     
-    @ManagedProperty(value = "#{param.id}")
+    //@ManagedProperty(value = "#{param.id}")
     private Long idProduto;
     
     public Produto getProduto() {
         //Produto teste = obterProduto(getIdProduto());
         //prodTeste = produto;
-        this.produto = obterProduto(getIdProduto());
-        System.out.println("getProduto() " + produto.toString());
-        return this.produto;
+        if (produto == null) {
+            produto = obterProduto(getIdProduto());
+        }
+        return produto;
     }
     
     public void setProduto(Produto produto) {
@@ -77,8 +79,8 @@ public class ProdutoBean {
         this.nomeProduto = nomeProduto;
     }
     
-    public ProdutoBean() {
-        produto = new Produto();
+    public AlterarProdutoBean() {
+
     }
     
     public String cadastrar() {
@@ -92,6 +94,7 @@ public class ProdutoBean {
     
     public String alterar() {
         
+       
         produtoEJB.alterar(produto);
         
         return "login.xhtml";
@@ -219,5 +222,6 @@ public class ProdutoBean {
     public void setOrd(String ord) {
         this.ord = ord;
     }
+    
     
 }
