@@ -91,70 +91,79 @@
         <div class="container" id="wrap">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
+                    <f:metadata>
+                        <f:viewParam name="id" value="#{alterarProdutoBean.idProduto}"/>
+                        <f:event type="preRenderView" listener="#{alterarProdutoBean.getProduto()}"/>
+                    </f:metadata>
+                    
                     <h:form class="form" prependId="false">  
                         <legend>Preencher</legend>
 
                         <div class="row">
 
                             <div class="col-xs-6 col-md-12">
-                                <p:inputText value="#{produtoBean.produto.imgCaminho}" class="form-control input-lg" pt:placeholder="Img"/>
+                                <p:inputText value="#{alterarProdutoBean.produto.imgCaminho}" class="form-control input-lg" pt:placeholder="Img"/>
                             </div>
 
                             <div class="col-xs-6 col-md-6">
-                                <p:inputText value="#{produtoBean.produto.linkVideo}" class="form-control input-lg" pt:placeholder="Link Video"/>                       
+                                <p:inputText value="#{alterarProdutoBean.produto.linkVideo}" class="form-control input-lg" pt:placeholder="Link Video"/>                       
                             </div>
 
                             <div class="col-xs-6 col-md-6">
-                                <p:inputText value="#{produtoBean.produto.categoriaProduto}" class="form-control input-lg" pt:placeholder="Categoria"/>                       
+                                <p:inputText value="#{alterarProdutoBean.produto.categoriaProduto}" class="form-control input-lg" pt:placeholder="Categoria"/>                       
                             </div>
 
                             <div class="col-xs-6 col-md-12">
-                                <p:inputText value="#{produtoBean.produto.codProduto}" class="form-control input-lg" pt:placeholder="Codigo"/>                                     
+                                <p:inputText value="#{alterarProdutoBean.produto.codProduto}" class="form-control input-lg" pt:placeholder="Codigo"/>                                     
                             </div>
 
                             <div class="col-xs-6 col-md-12">
-                                <p:inputText value="#{produtoBean.produto.descricaoProduto}" class="form-control input-lg" pt:placeholder="Descrição"/>                          
+                                <p:inputText value="#{alterarProdutoBean.produto.descricaoProduto}" class="form-control input-lg" pt:placeholder="Descrição"/>                          
                             </div>
 
 
                             <div class="col-xs-6 col-md-6">
-                                <p:inputText value="#{produtoBean.produto.fabricanteProduto}" class="form-control input-lg" pt:placeholder="Fabricante"/>                          
+                                <p:inputText value="#{alterarProdutoBean.produto.fabricanteProduto}" class="form-control input-lg" pt:placeholder="Fabricante"/>                          
                             </div>
 
                             <!--<div class="col-xs-6 col-md-6">
-                                <p:inputText value="#{produtoBean.produto.dtCadastroProduto}" class="form-control input-lg" pt:placeholder="Data Cadastro"/>                          
+                                <p:inputText value="#{alterarProdutoBean.produto.dtCadastroProduto}" class="form-control input-lg" pt:placeholder="Data Cadastro"/>                          
                             </div>-->
 
 
                             <div class="col-xs-6 col-md-6">
-                                <p:inputText value="#{produtoBean.produto.fxEtariaProduto}" class="form-control input-lg" pt:placeholder="FxEtaria"/>                           
+                                <p:inputText value="#{alterarProdutoBean.produto.fxEtariaProduto}" class="form-control input-lg" pt:placeholder="FxEtaria"/>                           
+                            </div>
+                            
+                            <div class="col-xs-6 col-md-6">
+                                <p:inputText value="#{alterarProdutoBean.produto.nomeProduto}" class="form-control input-lg" pt:placeholder="Nome Produto"/>                          
+                            
+                                
+
                             </div>
 
                             <div class="col-xs-6 col-md-6">
-                                <p:inputText value="#{produtoBean.produto.nomeProduto}" class="form-control input-lg" pt:placeholder="Nome Produto"/>                          
-                            </div>
-
-                            <div class="col-xs-6 col-md-6">
-                                <p:inputText value="#{produtoBean.produto.plataformaProduto}" class="form-control input-lg" pt:placeholder="Plataforma"/>                           
+                                <p:inputText value="#{alterarProdutoBean.produto.plataformaProduto}" class="form-control input-lg" pt:placeholder="Plataforma"/>                           
                             </div>
 
 
 
                             <div class="col-xs-6 col-md-3">
-                                <p:inputText value="#{produtoBean.produto.qtdProduto}"  class="form-control input-lg" pt:placeholder="Qtd"/>                
+                                <p:inputText value="#{alterarProdutoBean.produto.qtdProduto}"  class="form-control input-lg" pt:placeholder="Qtd"/>                
                             </div>
 
                             <div class="col-xs-6 col-md-9">
-                                <p:inputText value="#{produtoBean.produto.valorProduto}" class="form-control input-lg" pt:placeholder="Valor R$"/>                       
+                                <p:inputText value="#{alterarProdutoBean.produto.valorProduto}" class="form-control input-lg" pt:placeholder="Valor R$"/>                       
                             </div>
                         </div>
 
 
+                        
 
-
-                        <h:commandButton class="btn btn-lg btn-primary btn-block signup-btn" action="#{produtoBean.alterar()}" value="Cadastrar">
-                            <f:param name="id" value="#{produtoBean.produto.id}" />
+                        <h:commandButton class="btn btn-lg btn-primary btn-block signup-btn" action="#{alterarProdutoBean.alterar()}" value="Cadastrar">
+                            <f:param name="id" value="#{alterarProdutoBean.produto.id}" />
                         </h:commandButton>
+                        
                     </h:form>          
                 </div>
             </div>            
