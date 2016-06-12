@@ -60,7 +60,7 @@
         <div class="container">
             <h:form id="form">
                 <p>
-                    <h:inputText styleClass="col-xs-2"  value="#{produtoBean.nomeProduto}" />
+                    <h:inputText styleClass="btn btn-default"  value="#{produtoBean.nomeProduto}" />
                      
                     <h:commandButton action="#{produtoBean.recuperarProdutosNome()}" styleClass="btn btn-default" value="Buscar">
                         <f:ajax execute="@form" render="form:result" />
@@ -71,7 +71,7 @@
                         <h:graphicImage class="col-sm-8 hidden-xs" value="#{produto.imgCaminho}"/>
                     </p:column> 
                     <p:column headerText="Nome">
-                        <h:outputLabel  value="#{produto.nomeProduto}"/>
+                        <small><h:outputLabel  value="#{produto.nomeProduto}"/></small>
                     </p:column> 
                     <p:column headerText="Quantidade">
                         <h:outputLabel value="#{produto.qtdProduto}"/>

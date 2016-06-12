@@ -5,6 +5,21 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+                <style>
+                      #msg{
+                border: 3px solid white; padding: 10px 20px; text-align: center;
+                border-radius: 30px 30px;
+                 color:#3b6e22;
+                
+                background-color: #a4e388 !important;
+                font-size: 30px;
+                
+            } 
+          
+                </style>
+    
+    
     </h:head>
     <h:body>
           <!--Importanto Cabeçalho-->
@@ -13,8 +28,18 @@
          <!--Importanto Menus-->
         <ui:include src="menu.xhtml"/>
         
-        <h1>CADASTRADO COM SUCESSO</h1>
-        <a href="login.xhtml">Logar</a>
+       
+        <div id="msg"> 
+            <img src="resources/img/certo.png" alt="" height="156" width="156"/>
+                     <p>Cadastro Efetuado com Sucesso,</p>
+                      <p>Você Já Pode Aproveitar nossas Ofertas.</p>
+                     <p>Obrigado !!!</p>
+                     <p><a href="login.xhtml">Clique aqui para Logar</a></p>
+                     
+                              
+        </div>
+        
+        
         
     </h:body>
 </html>

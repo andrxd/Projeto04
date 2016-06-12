@@ -7,7 +7,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+        
         <style type="text/css">
             .table>tbody>tr>td, .table>tfoot>tr>td{
                 vertical-align: middle;
@@ -86,8 +88,8 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td data-th="Price" >R$#{item.produto.valorProduto}</td>
-                                <td data-th="Quantity">
+                                <td data-th="Preço" >R$#{item.produto.valorProduto}</td>
+                                <td data-th="Qtd">
 
 
                                     <p:inputText type="number"  class="form-control text-center" value="#{item.quantidade}">
