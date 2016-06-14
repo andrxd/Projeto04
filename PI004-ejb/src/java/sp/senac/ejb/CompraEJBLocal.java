@@ -5,6 +5,7 @@
  */
 package sp.senac.ejb;
 
+import java.util.List;
 import java.util.Set;
 import javax.ejb.Local;
 import sp.senac.entidades.Compra;
@@ -20,4 +21,8 @@ public interface CompraEJBLocal {
     public void registrarCompra(Compra compra);
 
     public void registrarItens(Set<ProdutoQuantidade> compra);
+    
+    public Compra buscarUltimaCompra();
+        
+    
 }

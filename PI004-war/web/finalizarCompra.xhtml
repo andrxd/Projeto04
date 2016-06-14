@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:head>
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
         <style type="text/css">
             .table>tbody>tr>td, .table>tfoot>tr>td{
@@ -61,23 +61,42 @@
             <table id="cart" class="table table-hover table-condensed">
                 <thead>
                     <tr>
+                        <th style="width:10%">Número da Compra</th>
                         <th style="width:10%">Data da Compra</th>
-                        <th style="width:8%">Nome do Usuario</th>
                         <th style="width:22%" class="text-center">Valor Total</th>                        
                     </tr>
                 </thead>
                 <tbody>
-                    
-                        <tr>
-                            
-                            <td data-th="Data da Compra">#{compraBean.getData()}</td>
-                            <td data-th="Nome do Usuario">#{usuarioBean.usuario.nome}</td>
-                            <td data-th="Valor Total" class="text-center">R$#{compraBean.valorTotal}</td>
-                            
-                        </tr>
-                    
+
+                    <tr>
+                        <td data-th="Codigo da Compra">#{compraBean.ultimaCompra().id}</td>
+                        <td data-th="Data da Compra">#{compraBean.ultimaCompra().dtCompra}</td>
+                        <td data-th="Valor Total" class="text-center">R$#{compraBean.ultimaCompra().valorTotal}</td>
+
+                        <ui:repeat value="#{compraBean.ultimaCompra().itensCompra}" var="itens">
+                            <div class="row">
+                                <div class="col-sm-4">                                    
+                                    <div class="thumbnail">
+
+                                        <h:graphicImage value="#{itens.produto.imgCaminho}" height="300" width="150" alt="" class="img-responsive" />
+                                        <p>Nome do Produto: <h:outputText value="#{itens.produto.nomeProduto}" /></p>
+                                        <p>Quantidade:  <h:outputText value="#{itens.quantidade}"/></p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </ui:repeat>
+
+
+                    </tr>
+
+
+
                 </tbody>
+
             </table>
+
         </div>
 
     </h:body>

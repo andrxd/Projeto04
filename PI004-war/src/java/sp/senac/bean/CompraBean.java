@@ -174,6 +174,11 @@ public class CompraBean implements Serializable {
         }
 
     }
+    
+    
+    public Compra ultimaCompra() {
+        return compraEJB.buscarUltimaCompra();
+    }
 
     /**
      * @return the compra
