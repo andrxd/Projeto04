@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +14,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SqlResultSetMapping;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,6 +37,28 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "produto.buscarProdutos",//NOME DA QUERY
             query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto) and UPPER(p.plataformaProduto) LIKE UPPER(:plataformaProduto) and UPPER(p.categoriaProduto) LIKE UPPER(:categoriaProduto)")
 })
+
+
+@SqlResultSetMapping(
+        name = "RelatorioMapping",
+        classes = @ConstructorResult(
+                targetClass = Relatorio.class,
+                columns = {
+                    @ColumnResult(name = "NUMERODACOMPRA", type = Long.class),
+                    @ColumnResult(name = "PRODUTO"),
+                    @ColumnResult(name = "QUANTIDADE",type = int.class),
+                    @ColumnResult(name = "VALOR", type = BigDecimal.class)}))
+
+@NamedNativeQueries({
+    @NamedNativeQuery(name = "produto.relatorioVendas", query = "SELECT B.ID AS \"NUMERODACOMPRA\",\n"
+            + "C.DESCRICAOPRODUTO AS \"PRODUTO\",\n"
+            + "A.QNT_ITEM AS \"QUANTIDADE\",\n"
+            + "(A.QNT_ITEM*C.VALORPRODUTO) AS \"VALOR\"\n"
+            + "FROM ITEMCOMPRA A\n"
+            + "INNER JOIN COMPRA B ON A.COMPRA_ID=B.ID\n"
+            + "INNER JOIN PRODUTO C ON A.PRODUTO_ID_PRODUTO=C.ID_PRODUTO\n"
+            + "INNER JOIN USUARIO D ON B.IDUSUARIO=D.ID_CLIENTE -- OK\n"
+            + "",resultSetMapping = "RelatorioMapping"), })
 
 public class Produto implements Serializable {
 
@@ -196,5 +223,4 @@ public class Produto implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "COMPRA_ID"))
     private List<Compra> compras;
 
-    
 }
