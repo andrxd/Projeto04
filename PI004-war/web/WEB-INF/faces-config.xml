@@ -10,26 +10,6 @@
         </phase-listener>
     </lifecycle>
     <navigation-rule>
-        <navigation-case>
-            <from-outcome>index</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cadastrarCliente</from-outcome>
-            <to-view-id>/cadastrarCliente.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>buscarClientesPorData</from-outcome>
-            <to-view-id>/relatorio/buscarClientesPorData.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cadastrarVenda</from-outcome>
-            <to-view-id>/cadastrarVenda.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cadastroProduto</from-outcome>
-            <to-view-id>/cadastroProduto.xhtml</to-view-id>
-        </navigation-case>
         
         
     </navigation-rule>

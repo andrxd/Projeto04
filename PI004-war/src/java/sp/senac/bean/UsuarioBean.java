@@ -45,9 +45,8 @@ public class UsuarioBean {
         
         if(!usuario.getNome().equals("")){
         usuarioEJB.alterar(usuario);
-        flash.put("msg", "Produto Cadastrado com Sucesso");
-        flash.put("tipo","sucesso");
-        usuario = null;
+       
+      
         
         
         }else{
@@ -60,7 +59,7 @@ public class UsuarioBean {
        
         
     }
-         return "login.xhtml";
+         return "listaProdutos.xhtml";
     }
 
     public void listarTodosUsuarios() {

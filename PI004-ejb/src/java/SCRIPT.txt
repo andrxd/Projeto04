@@ -1,14 +1,68 @@
---PRODUTO
+--JOGOS PS4
 
 INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
 FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
-VALUES(2,'JOGOS',007,'THE WITCHER PS4','2016-04-18 00:00:00','NANCO BANDAI',18,'resources/img/Ps4Thewitcher3.jpg','https://www.youtube.com/embed/xt_65k-gv1U',
-'THE WITCHER 3 PS4','PS4',10,100)
+VALUES(1,'JOGOS',001,'The Videogame é um jogo de videogame de ação-aventura, desenvolvido pela Travellers Tales e lançado pela Warner Bros. Games em 2008.','2016-06-17 00:00:00','WANNER',10,'resources/img/Ps4Lego.jpg','https://www.youtube.com/embed/xt_65k-gv1U',
+'LEGO BATMAN PS4','PS4',1,60)
 
 INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
 FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
-VALUES(3,'JOGOS',012,'DESTINY PS4 - FPS','2016-04-18 00:00:00','BUNGIE',16,'resources/img/Ps4Destiny.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+VALUES(2,'JOGOS',002,'The Witcher 3: Wild Hunt é um jogo eletrônico de ação do gênero RPG desenvolvido pela CD Projekt RED e lançado no dia 19 de maio de 2015 para as plataformas Microsoft Windows, PlayStation 4 e Xbox One','2016-06-17 00:00:00','NANCO BANDAI',18,'resources/img/Ps4Thewitcher3.jpg','https://www.youtube.com/embed/xt_65k-gv1U',
+'THE WITCHER 3 PS4','PS4',1,100)
+
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(3,'JOGOS',003,'Destiny é um jogo eletrônico online de tiro em primeira pessoa, jogado num mundo aberto e persistente num ambiente "mítico de ficção cientifica"','2016-06-17 00:00:00','BUNGIE',16,'resources/img/Ps4Destiny.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
 'DESTINY PS4','PS4',1,80)
+
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(4,'JOGOS',004,'Tom Clancy's Rainbow Six Siege é um videojogo do género first person shooter produzido pela Ubisoft Montreal. Foi anunciado pela Ubisoft a 9 de Junho de 2014 na Electronic Entertainment Expo 2014 onde foi muito aplaudido pela critica.','2016-06-17 00:00:00','UBISOFT',18,'resources/img/Ps4Six.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+'RAINBOWN SIX PS4','PS4',1,150)
+
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(5,'JOGOS',005,'Tom Clancy's Rainbow Six Siege é um videojogo do género first person shooter produzido pela Ubisoft Montreal. Foi anunciado pela Ubisoft a 9 de Junho de 2014 na Electronic Entertainment Expo 2014 onde foi muito aplaudido pela critica.','2016-06-17 00:00:00','UBISOFT',18,'resources/img/Ps4Creed.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+'ASSASSIN CREED PS4','PS4',1,70)
+
+--JOGOS XBOX
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(6,'JOGOS',006,'Tom Clancy's The Division é um jogo eletrônico de tiro táctico com elementos de RPG, jogado em mundo aberto. Foi produzido pela Ubisoft Massive, Ubisoft Reflections, Ubisoft Red Storm e Ubisoft Annecy, sobre a marca Tom Clancy','2016-06-17 00:00:00','UBISOFT',18,'resources/img/XboxTheDivision.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+'THE DIVISION XBOX','XBOX',1,130)
+
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(7,'JOGOS',007,'Tomb Raider é uma série de jogos eletrônicos, histórias em quadrinhos e filmes tendo como protagonista a personagem Lara Croft','2016-06-17 00:00:00','CRYSTAL DYNAMICS',18,'resources/img/XboxTomb.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+'TOMB RAIDER XBOX','XBOX',1,90)
+
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(8,'JOGOS',008,'Metro: Last Light é um videojogo de ação produzido pelo estúdio ucraniano 4A Games, publicado pela Deep Silver e é uma sequencia de Metro 2033.','2016-06-17 00:00:00','4A GAMES',18,'resources/img/XboxTomb.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+'METRO XBOX','XBOX',1,60)
+
+--JOGOS PC
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(9,'JOGOS',009,'Thief é um videojogo produzido pela Eidos Montreal e publicado pela Square Enix. Foi lançado inicialmente em 25 de fevereiro de 2014.','2016-06-17 00:00:00','SQUARE ENIX',18,'resources/img/PCThief.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+'THIEF PC','PC',1,50)
+
+
+--ACESSORIOS PS4
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(10,'ACESSORIOS',010,'Luta seu caminho para o topo das tabelas de classificação com Mad Catz 'Arcade FightStick Tournament Edition 2 para Xbox One. Dando continuidade ao legado do original TE FightStick, esta versão constrói premium, peças de arcade qualidade Sanwa Denshi em um arcade stick que é tanto pronto para a competição e perfeito para a personalização para torná-lo seu próprio.','2016-06-17 00:00:00','MAD CATZ',18,'resources/img/ps4Acessorio.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+'CONTROLE ARCADE MADCATZ TE 2','PS4',1,900)
+
+
+--CONSOLE PS4
+INSERT INTO PRODUTO(ID_PRODUTO,CATEGORIAPRODUTO,CODPRODUTO,DESCRICAOPRODUTO,DTCADASTROPRODUTO,FABRICANTEPRODUTO,
+FXETARIAPRODUTO,IMGCAMINHO,LINKVIDEO,NOMEPRODUTO,PLATAFORMAPRODUTO,QTDPRODUTO,VALORPRODUTO)
+VALUES(11,'CONSOLES',011,'O PlayStation 4 é o melhor lugar para jogar jogos dinâmicos e conectados, com gráfico rico e alta velocidade, personalização inteligente, funcionalidades sociais altamente integradas e recursos de segunda tela inovadores.','2016-06-17 00:00:00','SONY',0,'resources/img/ps4Console.jpg','https://www.youtube.com/embed/clRpcIHpmoY',
+'CONSOLE PS4','PS4',1,1500)
+
+
+
 
 
 
@@ -22,7 +76,7 @@ VALUES(1,'04689-155','GRAJAU','','99988-8825','APTO 32 BLOCO B','616.158.157-37'
 INSERT INTO USUARIO(ID_CLIENTE,CEP,BAIRRO,CARGO,CELULAR,COMPLEMENTOENDERECO,
 CPF,DTNACIMENTO,EMAIL,LOGIN,NOME,NUMEROENDERECO,RG,RUA,SENHA,SEXO,TELEFONE,TIPOUSUARIO)
 VALUES(1,'04689-155','GRAJAU','','99988-8825','APTO 32 BLOCO B','616.158.157-37','1995-04-18 00:00:00','TESTE@TESTE.COM.BR',
-'MASTER','Andre Rodrigues',23,'35.887.897-0','CLEMENTIA','ANDRE','M','5585-2578','')
+'MASTER','Andre Rodrigues',23,'35.887.897-0','CLEMENTIA','ANDRE','M','5585-2578','ADMIN')
 
 -- QUERY LSITA DE COMPRA
 

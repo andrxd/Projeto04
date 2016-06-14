@@ -55,8 +55,7 @@ public class Usuario implements Serializable{
     private String rg;
     
     @Column(name="dtNacimento")
-    @Temporal(TemporalType.DATE)
-    private Date dtNascimento;
+    private String dtNascimento;
     
     @Column(name="CPF")
     private String cpf;
@@ -140,13 +139,7 @@ public class Usuario implements Serializable{
         this.rg = rg;
     }
 
-    public Date getDtNascimento() {
-        return dtNascimento;
-    }
 
-    public void setDtNascimento(Date dtNascimento) {
-        this.dtNascimento = dtNascimento;
-    }
 
     public String getCpf() {
         return cpf;
@@ -234,6 +227,14 @@ public class Usuario implements Serializable{
 
     public void setBairro(String bairro) {
         this.bairro = bairro;
+    }
+
+    public String getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(String dtNascimento) {
+        this.dtNascimento = dtNascimento;
     }
     
             

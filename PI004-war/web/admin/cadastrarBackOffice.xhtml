@@ -9,11 +9,6 @@
     <h:head>
         <title>Cadastrar Cliente</title>   
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta><link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
-        <h:outputScript name="js/jquery-1.11.3.js" />
-        <h:outputStylesheet name="css/bootstrap.min.css" />
-        <h:outputScript name="js/bootstrap.min.js" />
-        <h:outputStylesheet name="css/bootstrap.min.css" />
-        
         <style type="text/css">
             .row{
                 background-color:#fff;
@@ -96,15 +91,15 @@
 
         </style>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-       
+       <!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
     </h:head>
     <h:body>
 
         <!--Importanto Cabeçalho-->
-        <ui:include src="cabecalho.xhtml"/>
+        <ui:include src="../cabecalho.xhtml"/>
 
         <!--Importanto Menus-->
-        <ui:include src="menu.xhtml"/>
+        <ui:include src="../menu.xhtml"/>
 
         <div class="container" id="wrap">
             <div class="row">
@@ -119,7 +114,13 @@
                                     <p class="#{flash.tipo}">#{flash.msg}</p>
                                 </ui:fragment>
                             </div>
-
+                             <div class="col-xs-6 col-md-12">
+                                 <h:outputLabel>Cargo</h:outputLabel>
+                                <h:selectOneMenu value="#{novoUsuarioBean.usuario.tipo}" class="form-control input-lg">
+                                    <f:selectItem itemValue="" itemLabel="" />
+                                    <f:selectItem itemValue="ADMIN" itemLabel="BackOffice" />	   							
+                                </h:selectOneMenu> 
+                            </div>
 
                             <div class="col-xs-6 col-md-9">
                                 <h:outputLabel>Nome</h:outputLabel>
@@ -202,14 +203,7 @@
                             </div>
                         </div>
 
-
-
-
-
                         <h:commandButton class="btn btn-lg btn-primary btn-block signup-btn" action="#{novoUsuarioBean.cadastrar()}" value="Cadastrar"/>
-
-
-
 
                     </h:form>          
                 </div>
