@@ -108,6 +108,23 @@
                         <c:if test="#{usuarioBean.usuario.nome == null}">
                             <li><a href="login.xhtml">Login</a></li>
                         </c:if>
+                        <c:if test="#{usuarioBean.usuario.tipo == 'ADMIN'}">
+                            <li><li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
+                                
+                                <ul class="dropdown-menu">
+                                    <li>    
+                                        
+                                        <h:link value="Cadastro Produto" outcome="cadastroProduto.xhtml"></h:link>
+                                        <h:link value="Cadastro BackOffice" outcome="cadastrarBackOffice.xhtml"></h:link>  
+                                        <h:link value="Alterar Produto" outcome="teste.xhtml"></h:link>
+                                    </li>
+                                    
+                                    </ul>    
+                                </li></li>
+                        </c:if>
+      
+                        
                         <li><a href="carrinho.xhtml">Carrinho</a></li>
                         <c:if test="#{usuarioBean.usuario.nome == null}">
                             <li><a href="cadastrarCliente.xhtml">Cadastre-se</a></li>
