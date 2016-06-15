@@ -42,6 +42,7 @@ public class ProdutoEJB implements ProdutoEJBLocal {
 
         Query query = em.createNamedQuery("produto.buscarPorNomeProduto");
         query.setParameter("nomeProduto", "%" + nome + "%");//NOME DA COLUNA QUE QUERO TRAZER
+        
         return query.getResultList();
 
     }
@@ -53,12 +54,21 @@ public class ProdutoEJB implements ProdutoEJBLocal {
         query.setParameter("nomeProduto", "%" + nome + "%");//NOME DA COLUNA QUE QUERO TRAZER
         query.setParameter("plataformaProduto", "%" + plataformaProduto + "%");//NOME DA COLUNA QUE QUERO TRAZER
         query.setParameter("categoriaProduto", "%" + categoriaProduto + "%");//NOME DA COLUNA QUE QUERO TRAZER
+        query.setParameter("N","N");
         return query.getResultList();
 
     }
 
     @Override
     public List<Produto> buscarTodosProdutos() {
+        
+        Query query = em.createQuery("select p from Produto p");
+        return query.getResultList();
+    }
+    
+     @Override
+    public List<Produto> buscarTodosProdutosADM() {
+        
         Query query = em.createQuery("select p from Produto p");
         return query.getResultList();
     }

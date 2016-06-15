@@ -162,10 +162,20 @@
                                  <p:inputText type="number"  class="form-control input-lg" value="#{novoProdutoBean.produto.qtdProduto}"/>
                             </div>
 
-                            <div class="col-xs-6 col-md-9">
+                            <div class="col-xs-6 col-md-5">
                                  <h:outputLabel>Valor R$:</h:outputLabel>
                                 <p:inputText value="#{novoProdutoBean.produto.valorProduto}" class="form-control input-lg" pt:placeholder="Valor R$"/>                       
                             </div>
+                             <div class="col-xs-6 col-md-4">
+                                 <h:outputLabel>Desativar</h:outputLabel>
+                                 <h:selectOneMenu value="#{novoProdutoBean.produto.desativar}" class="form-control input-lg">  
+                                    <f:selectItem itemValue="N" itemLabel="NAO" />
+                                    <f:selectItem itemValue="S" itemLabel="SIM" />
+                                </h:selectOneMenu> 
+                                                          
+                            </div>
+                            
+                            
                         </div>
 
                  

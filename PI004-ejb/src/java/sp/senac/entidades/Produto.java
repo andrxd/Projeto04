@@ -31,11 +31,11 @@ import javax.persistence.TemporalType;
 @Table(name = "Produto")
 @NamedQueries({
     @NamedQuery(name = "produto.buscarPorNomeProduto",//NOME DA QUERY
-            query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto)"),
+            query = "select p from Produto p where  UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto)"),
     @NamedQuery(name = "produto.obterProduto",//NOME DA QUERY
             query = "select p from Produto p where p.id = :idProduto"),
     @NamedQuery(name = "produto.buscarProdutos",//NOME DA QUERY
-            query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto) and UPPER(p.plataformaProduto) LIKE UPPER(:plataformaProduto) and UPPER(p.categoriaProduto) LIKE UPPER(:categoriaProduto)")
+            query = "select p from Produto p where UPPER(p.nomeProduto) LIKE UPPER(:nomeProduto) and UPPER(p.plataformaProduto) LIKE UPPER(:plataformaProduto) and UPPER(p.categoriaProduto) LIKE UPPER(:categoriaProduto)and p.desativar=:N")
 })
 
 
@@ -51,7 +51,7 @@ import javax.persistence.TemporalType;
 
 @NamedNativeQueries({
     @NamedNativeQuery(name = "produto.relatorioVendas", query = "SELECT B.ID AS \"NUMERODACOMPRA\",\n"
-            + "C.DESCRICAOPRODUTO AS \"PRODUTO\",\n"
+            + "C.NOMEPRODUTO AS \"PRODUTO\",\n"
             + "A.QNT_ITEM AS \"QUANTIDADE\",\n"
             + "(A.QNT_ITEM*C.VALORPRODUTO) AS \"VALOR\"\n"
             + "FROM ITEMCOMPRA A\n"
@@ -102,6 +102,26 @@ public class Produto implements Serializable {
 
     @Column(name = "linkVideo")
     private String linkVideo;
+    
+    @Column(name = "Desativar")
+    private String desativar ;
+
+    public String getDesativar() {
+        return desativar;
+    }
+
+    public void setDesativar(String desativar) {
+        this.desativar = desativar;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
+    }
+    
 
     public String getLinkVideo() {
         return linkVideo;

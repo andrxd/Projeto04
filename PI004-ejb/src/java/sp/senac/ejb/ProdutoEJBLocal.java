@@ -25,6 +25,8 @@ public interface ProdutoEJBLocal {
 
     public List<Produto> buscarTodosProdutos();
 
+      public List<Produto> buscarTodosProdutosADM();
+      
     public Produto obterProduto(long id);
 
     public List<Relatorio> relatorioVendas();

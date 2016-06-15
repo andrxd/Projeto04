@@ -45,7 +45,7 @@
             }
         </style>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!--<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
 
     </h:head>
@@ -70,7 +70,7 @@
                 </p>
                 <p:dataTable var="produto" id="result" value="#{produtoBean.listaProduto}">
                     <p:column  class="hidden-xs" headerText="Produto">
-                        <h:graphicImage class="col-sm-8 hidden-xs" value="#{produto.imgCaminho}"/>
+                        <h:graphicImage class="col-sm-8 hidden-xs" value="../#{produto.imgCaminho}"/>
                     </p:column> 
                     <p:column headerText="Nome">
                         <small><h:outputLabel  value="#{produto.nomeProduto}"/></small>
