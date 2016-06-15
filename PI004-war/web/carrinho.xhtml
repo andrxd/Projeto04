@@ -7,9 +7,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
-
+        
         <style type="text/css">
             .table>tbody>tr>td, .table>tfoot>tr>td{
                 vertical-align: middle;
@@ -23,14 +23,12 @@
                     width:36%;
                     margin:1.5em 0;
                 }
-
                 .actions .btn-info{
                     float:left;
                 }
                 .actions .btn-danger{
                     float:right;
                 }
-
                 table#cart thead { display: none; }
                 table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
                 table#cart tbody tr td:first-child { background: #333; color: #fff; }
@@ -38,12 +36,8 @@
                     content: attr(data-th); font-weight: bold;
                     display: inline-block; width: 8rem;
                 }
-
-
-
                 table#cart tfoot td{display:block; }
                 table#cart tfoot td .btn{display:block;}
-
             }
         </style>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -81,11 +75,10 @@
                                 <td data-th="Product">
                                     <div class="row">
 
-                                        <div class="col-sm-2 hidden-xs"><img src="#{item.produto.imgCaminho}" alt="..." class="img-responsive"/>
-                                            <div class="col-sm-10">
-                                                <h4 class="nomargin">#{item.produto.nomeProduto}</h4>
-                                                <p>#{item.produto.fabricanteProduto}</p>
-                                            </div>
+                                        <div class="col-sm-2 hidden-xs"><img src="#{item.produto.imgCaminho}" alt="..." class="img-responsive"/></div>
+                                        <div class="col-sm-10">
+                                            <h4 class="nomargin">#{item.produto.nomeProduto}</h4>
+                                            <p>#{item.produto.fabricanteProduto}</p>
                                         </div>
                                     </div>
                                 </td>
@@ -118,9 +111,9 @@
                                     <h:commandButton class="btn btn-info btn-sm" value="=" action="#{item.calcular}">
 
                                     </h:commandButton>
-
+                                    
                                     <h:commandButton class="btn btn-danger btn-sm " value="X" action="#{compraBean.removerProduto(item.produto.id)}">
-
+                                        
                                     </h:commandButton>
 
                                     <!--<h:commandButton class="btn btn-danger btn-sm" value="=" /> -->   
@@ -165,4 +158,3 @@
 
     </h:body>
 </html>
-

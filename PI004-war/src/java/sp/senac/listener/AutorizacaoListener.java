@@ -37,7 +37,7 @@ public class AutorizacaoListener implements PhaseListener {
         return;
       }
       if (!verificarAcesso(usuarioBean.getUsuario().getTipo(), paginaAtual)) {
-        nh.handleNavigation(facesContext, null,
+       nh.handleNavigation(facesContext, null,
                 "/login.xhtml?faces-redirect=true");
         return;
       }
@@ -46,16 +46,22 @@ public class AutorizacaoListener implements PhaseListener {
     }
   }
   
-  private static boolean verificarAcesso(String tipoUsuario, 
-          String pagina) {
-    if (pagina.lastIndexOf("produto-form.xhtml") > -1 &&
-             tipoUsuario == "ADMIN") {
-      return true;
-    } else if (pagina.lastIndexOf("pagina-admin.xhtml") > -1 &&
-            tipoUsuario == "ADMIN") {
-      return true;
+  private static boolean verificarAcesso(String tipoUsuario, String pagina) {
+    boolean verifica = "ADMIN".equals(tipoUsuario);
+    if(pagina.contains("buscarProduto.xhtml") && verifica){
+        return true;
+    }else if((pagina.contains("cadastrarBackOffice.xhtml") && verifica)){
+        return true;
+    }else if((pagina.contains("cadastroProduto.xhtml") && verifica)){
+        return true;
+    }else if((pagina.contains("alterarProdutos.xhtml") && verifica)){
+        return true;
+    }else if((pagina.contains("relatorioVendas.xhtml") && verifica)){
+        return true;
     }
+    
     return false;
+//return (pagina.contains("cadastroProduto.xhtml") && verifica) ;
   }
 
   @Override

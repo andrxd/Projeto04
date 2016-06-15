@@ -27,7 +27,7 @@ public class UsuarioBean {
     private UsuarioEJBLocal usuarioEJB;
 
     public UsuarioBean() {
-        usuario = new Usuario();
+     
     }
 
     public String cadastrar() {

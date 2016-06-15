@@ -10,6 +10,25 @@
         </phase-listener>
     </lifecycle>
     <navigation-rule>
+        <navigation-case>
+            <from-outcome>CadastroProduto</from-outcome>
+            <to-view-id>/admin/cadastroProduto.xhtml</to-view-id>
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>CadastroBackOffice</from-outcome>
+            <to-view-id>/admin/cadastrarBackOffice.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>AlterarProduto</from-outcome>
+            <to-view-id>/admin/buscarProduto.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>RelatorioVendas</from-outcome>
+            <to-view-id>/admin/relatorioVendas.xhtml</to-view-id>
+        </navigation-case>
         
         
     </navigation-rule>
