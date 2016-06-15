@@ -15,25 +15,26 @@
     </h:head>
     <h:body>
  
-<nav class="navbar navbar-default">
-            <div class="container-fluid">
-
-                <div class="navbar-header">
+<nav class="navbar navbar-default" style="border: 0px solid #5cb85c; ">
+            <div class="container-fluid" style="background-color:#5cb85c;" >
+   <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.xhtml">UziGames</a>
+                    <a class="navbar-brand" style="color:#fff" href="index.xhtml"><strong>UziGames</strong></a>
                 </div>
 
+           
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
+                <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1"  >
+                    <ul class="nav navbar-nav"  >
+
+                        <li class="dropdown"  >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fff">Games <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <h:link value="Playstation" outcome="buscar.xhtml">
@@ -51,7 +52,7 @@
                         </li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Console <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fff">Console <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <h:link value="Playstation" outcome="buscar.xhtml">
@@ -67,7 +68,7 @@
                                 </li>                                
                             </ul>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acessórios <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fff">Acessórios <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <h:link value="Playstation" outcome="buscar.xhtml">
@@ -97,20 +98,20 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <c:if test="#{usuarioBean.usuario.nome != null}">
-                            <li><a href="#">Bem-vindo : #{usuarioBean.usuario.nome}</a></li>
+                            <li><a href="#" style="color:#fff">Bem-vindo : #{usuarioBean.usuario.nome}</a></li>
 
                             <li>
                                 <h:form>
-                                    <p:commandButton style="background-color:#fff; margin-top:10px; ;" action="#{usuarioBean.logout()}"  value="Sair"></p:commandButton>
+                                    <p:commandButton style="background-color:#fff; margin-top:10px; color:#fff;" action="#{usuarioBean.logout()}"  value="Sair"></p:commandButton>
                                 </h:form>
                             </li>
                         </c:if>
                         <c:if test="#{usuarioBean.usuario.nome == null}">
-                            <li><a href="login.xhtml">Login</a></li>
+                            <li><a href="login.xhtml" style="color:#fff">Login</a></li>
                         </c:if>
                         <c:if test="#{usuarioBean.usuario.tipo == 'ADMIN'}">
                             <li><li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fff">Ferramentas<span class="caret"></span></a>
                                 
                                 <ul class="dropdown-menu">
                                     <li>    
@@ -127,12 +128,12 @@
                         </c:if>
       
                         
-                        <li><a href="carrinho.xhtml">Carrinho</a></li>
+                        <li><a href="carrinho.xhtml" style="color:#fff" >Carrinho</a></li>
                         <c:if test="#{usuarioBean.usuario.nome == null}">
-                            <li><a href="cadastrarCliente.xhtml">Cadastre-se</a></li>
+                            <li><a href="cadastrarCliente.xhtml" style="color:#fff">Cadastre-se</a></li>
                         </c:if>
                         <c:if test="#{usuarioBean.usuario.nome != null}">
-                            <li><a href="alterarCliente.xhtml">Alterar Cadastro</a></li>
+                            <li><a href="alterarCliente.xhtml" style="color:#fff">Alterar Cadastro</a></li>
                         </c:if>
 
                     </ul>
