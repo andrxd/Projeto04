@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="color:#fff" href="home.xhtml"><strong>UziGames</strong></a>
+                    <a class="navbar-brand" style="color:#fff" href="listaProdutos.xhtml"><strong>UziGames</strong></a>
                 </div>
 
            
@@ -104,7 +104,7 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <c:if test="#{usuarioBean.usuario.nome != null}">
-                            <li><a href="#" style="color:#fff">Bem-vindo : #{usuarioBean.usuario.nome}</a></li>
+                            <li><a href="#" style="color:#fff">#{usuarioBean.usuario.nome}</a></li>
 
                             <li>
                                 <h:form>
