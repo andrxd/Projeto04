@@ -4,51 +4,40 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>Facelet Title</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
         <h:outputScript name="js/jquery-1.11.3.js" />
         <h:outputStylesheet name="css/style.css" /> 
         <h:outputStylesheet name="css/bootstrap.min.css" /> 
         <h:outputScript name="js/bootstrap.min.js" />
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
-    <style type="text/css">
-        
-    </style>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <style type="text/css">
 
-        
+        </style>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
     </h:head>
     <h:body>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-   
-    
-    
-  </ol>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-        <img src="#{produtoBean.produto.imgCaminho}" alt="Chania"/>
-    </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="#{produtoBean.produto.imgCaminho}" alt="Chania"/>
+                </div>
 
-    <div class="item">
-                        <div class="embed-responsive embed-responsive-4by3">
-                            <iframe class="embed-responsive-item" src="#{produtoBean.produto.linkVideo}"></iframe>
-                        </div>
-
-       
-    </div>
-
-   
-
-   
-  </div>
-
-  
-</div>
+                <div class="item">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" src="#{produtoBean.produto.linkVideo}"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> 
     </h:body>
 </html>
 
